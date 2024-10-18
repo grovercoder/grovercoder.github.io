@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <title>
   How to get your IP from a BASH script · GroverCoder
 </title>
@@ -48,7 +48,7 @@ This is a little verbose, but works very well for my use case. This can be done 
   <meta name="twitter:description" content=" For when you have many network interfaces Link to heading Photo by Jonathan on Unsplash
 The short version: Link to heading ip addr show $(ip route | awk &#39;/default/ { print $5 }&#39;) | grep &#34;inet&#34; | head -n 1 | awk &#39;/inet/ {print $2}&#39; | cut -d&#39;/&#39; -f1 We use ip route and awk to determine the name of our default network interface We use ip addr to get the IP details for that interface We grep for only the line(s) that indicate “inet” We then make sure we are only dealing with one line via the head command. There should only be a single “inet” line to begin with, but it is possible there could be more than one. We use awk to extract the IP address We use cut to strip off the subnet information if it is present This is a little verbose, but works very well for my use case. This can be done in a more concise manner with a little effort. Adopt this, or use another technique to suit your needs.">
 
-<meta property="og:url" content="//localhost:1313/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/">
+<meta property="og:url" content="https://grovercoder.github.io/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/">
   <meta property="og:site_name" content="GroverCoder">
   <meta property="og:title" content="How to get your IP from a BASH script">
   <meta property="og:description" content=" For when you have many network interfaces Link to heading Photo by Jonathan on Unsplash
@@ -65,7 +65,7 @@ The short version: Link to heading ip addr show $(ip route | awk &#39;/default/
 
 
 
-<link rel="canonical" href="//localhost:1313/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/">
+<link rel="canonical" href="https://grovercoder.github.io/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/">
 
 
 <link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -75,7 +75,7 @@ The short version: Link to heading ip addr show $(ip route | awk &#39;/default/
 
   
   
-  <link rel="stylesheet" href="/css/coder.css" media="screen">
+  <link rel="stylesheet" href="/css/coder.min.b04b3b293fda1eeaad08ca369d0beb7106ec93f453ce9a8a3b787a21b76e7df6.css" integrity="sha256-sEs7KT/aHuqtCMo2nQvrcQbsk/RTzpqKO3h6IbduffY=" crossorigin="anonymous" media="screen" />
 
 
 
@@ -85,7 +85,7 @@ The short version: Link to heading ip addr show $(ip route | awk &#39;/default/
   
     
     
-    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+    <link rel="stylesheet" href="/css/coder-dark.min.38bd245a7922e87128d12aa12859e32c3455413c05485c304123a6af4db69763.css" integrity="sha256-OL0kWnki6HEo0SqhKFnjLDRVQTwFSFwwQSOmr022l2M=" crossorigin="anonymous" media="screen" />
   
 
 
@@ -96,8 +96,7 @@ The short version: Link to heading ip addr show $(ip route | awk &#39;/default/
   
   
     
-    
-    <link rel="stylesheet" href="/scss/projects.css" media="screen">
+    <link rel="stylesheet" href="/scss/projects.min.9b320a6c6cb302209029718d86a3057d0a0a38d5db23cda6664562857e6398d1.css" integrity="sha256-mzIKbGyzAiCQKXGNhqMFfQoKONXbI82mZkVihX5jmNE=" crossorigin="anonymous" media="screen" />
   
 
 
@@ -140,7 +139,7 @@ The short version: Link to heading ip addr show $(ip route | awk &#39;/default/
     <nav class="navigation">
   <section class="container">
     
-    <a class="navigation-title" href="//localhost:1313/">
+    <a class="navigation-title" href="https://grovercoder.github.io/">
       GroverCoder
     </a>
     
@@ -171,7 +170,7 @@ The short version: Link to heading ip addr show $(ip route | awk &#39;/default/
       <header>
         <div class="post-title">
           <h1 class="title">
-            <a class="title-link" href="//localhost:1313/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/">
+            <a class="title-link" href="https://grovercoder.github.io/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/">
               How to get your IP from a BASH script
             </a>
           </h1>
@@ -307,7 +306,7 @@ The short version: Link to heading ip addr show $(ip route | awk &#39;/default/
 
   
   
-  <script src="/js/coder.js"></script>
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
   
 
   

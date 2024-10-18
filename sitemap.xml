@@ -2,81 +2,81 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/</loc>
+    <loc>https://grovercoder.github.io/</loc>
     <lastmod>2024-10-11T14:45:19-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/projects/</loc>
+    <loc>https://grovercoder.github.io/projects/</loc>
     <lastmod>2024-10-11T14:45:19-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/ai-/-llms/</loc>
+    <loc>https://grovercoder.github.io/tags/ai-/-llms/</loc>
     <lastmod>2024-10-09T16:01:10-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/application-design/</loc>
+    <loc>https://grovercoder.github.io/tags/application-design/</loc>
     <lastmod>2024-10-09T16:01:10-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/</loc>
+    <loc>https://grovercoder.github.io/posts/</loc>
     <lastmod>2024-10-09T16:01:10-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/python/</loc>
+    <loc>https://grovercoder.github.io/tags/python/</loc>
     <lastmod>2024-10-09T16:01:10-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/</loc>
+    <loc>https://grovercoder.github.io/tags/</loc>
     <lastmod>2024-10-09T16:01:10-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/2024108-local-ollama-python/</loc>
+    <loc>https://grovercoder.github.io/posts/2024108-local-ollama-python/</loc>
     <lastmod>2024-10-09T16:01:10-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/about/</loc>
+    <loc>https://grovercoder.github.io/about/</loc>
     <lastmod>2024-09-01T13:37:10-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/bash/</loc>
+    <loc>https://grovercoder.github.io/tags/bash/</loc>
     <lastmod>2021-06-03T13:40:01-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/command-line/</loc>
+    <loc>https://grovercoder.github.io/tags/command-line/</loc>
     <lastmod>2021-06-03T13:40:01-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/2021-06-03_generate-gpg-key-without-passphrase/</loc>
+    <loc>https://grovercoder.github.io/posts/2021-06-03_generate-gpg-key-without-passphrase/</loc>
     <lastmod>2021-06-03T13:40:01-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/linux/</loc>
+    <loc>https://grovercoder.github.io/tags/linux/</loc>
     <lastmod>2021-06-03T13:40:01-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/</loc>
+    <loc>https://grovercoder.github.io/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/</loc>
     <lastmod>2021-05-25T13:40:01-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/blender/</loc>
+    <loc>https://grovercoder.github.io/tags/blender/</loc>
     <lastmod>2021-02-17T13:40:01-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/debian/</loc>
+    <loc>https://grovercoder.github.io/tags/debian/</loc>
     <lastmod>2021-02-17T13:40:01-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/2021-02-17_mx-linux-and-blender-crash/</loc>
+    <loc>https://grovercoder.github.io/posts/2021-02-17_mx-linux-and-blender-crash/</loc>
     <lastmod>2021-02-17T13:40:01-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/2020-10-30_how-i-use-node-js-professionally/</loc>
+    <loc>https://grovercoder.github.io/posts/2020-10-30_how-i-use-node-js-professionally/</loc>
     <lastmod>2020-10-30T13:40:01-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/javascript/</loc>
+    <loc>https://grovercoder.github.io/tags/javascript/</loc>
     <lastmod>2020-10-30T13:40:01-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/node.js/</loc>
+    <loc>https://grovercoder.github.io/tags/node.js/</loc>
     <lastmod>2020-10-30T13:40:01-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/projects/test2/</loc>
+    <loc>https://grovercoder.github.io/projects/test2/</loc>
     <lastmod>2020-10-11T17:21:00-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/projects/websites/</loc>
+    <loc>https://grovercoder.github.io/projects/websites/</loc>
     <lastmod>2020-10-11T17:21:00-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/2020-08-09_data-access-models-with-node/</loc>
+    <loc>https://grovercoder.github.io/posts/2020-08-09_data-access-models-with-node/</loc>
     <lastmod>2020-08-09T13:40:01-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/database/</loc>
+    <loc>https://grovercoder.github.io/tags/database/</loc>
     <lastmod>2020-08-09T13:40:01-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/2020-08-08_node-js-and-relational-databases/</loc>
+    <loc>https://grovercoder.github.io/posts/2020-08-08_node-js-and-relational-databases/</loc>
     <lastmod>2020-08-08T13:40:01-06:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/categories/</loc>
+    <loc>https://grovercoder.github.io/categories/</loc>
   </url>
 </urlset>
