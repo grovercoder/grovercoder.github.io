@@ -2,20 +2,81 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://example.org/about/</loc>
-    <lastmod>2024-10-09T12:03:33-06:00</lastmod>
+    <loc>//localhost:1313/</loc>
+    <lastmod>2024-10-11T14:45:19-06:00</lastmod>
   </url><url>
-    <loc>http://example.org/</loc>
-    <lastmod>2024-10-09T11:59:15-06:00</lastmod>
+    <loc>//localhost:1313/projects/</loc>
+    <lastmod>2024-10-11T14:45:19-06:00</lastmod>
   </url><url>
-    <loc>http://example.org/posts/my-first-post/</loc>
-    <lastmod>2024-10-09T11:59:15-06:00</lastmod>
+    <loc>//localhost:1313/tags/ai-/-llms/</loc>
+    <lastmod>2024-10-09T16:01:10-06:00</lastmod>
   </url><url>
-    <loc>http://example.org/posts/</loc>
-    <lastmod>2024-10-09T11:59:15-06:00</lastmod>
+    <loc>//localhost:1313/tags/application-design/</loc>
+    <lastmod>2024-10-09T16:01:10-06:00</lastmod>
   </url><url>
-    <loc>http://example.org/categories/</loc>
+    <loc>//localhost:1313/posts/</loc>
+    <lastmod>2024-10-09T16:01:10-06:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/</loc>
+    <loc>//localhost:1313/tags/python/</loc>
+    <lastmod>2024-10-09T16:01:10-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/</loc>
+    <lastmod>2024-10-09T16:01:10-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/2024108-local-ollama-python/</loc>
+    <lastmod>2024-10-09T16:01:10-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/about/</loc>
+    <lastmod>2024-09-01T13:37:10-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/bash/</loc>
+    <lastmod>2021-06-03T13:40:01-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/command-line/</loc>
+    <lastmod>2021-06-03T13:40:01-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/2021-06-03_generate-gpg-key-without-passphrase/</loc>
+    <lastmod>2021-06-03T13:40:01-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/linux/</loc>
+    <lastmod>2021-06-03T13:40:01-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/</loc>
+    <lastmod>2021-05-25T13:40:01-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/blender/</loc>
+    <lastmod>2021-02-17T13:40:01-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/debian/</loc>
+    <lastmod>2021-02-17T13:40:01-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/2021-02-17_mx-linux-and-blender-crash/</loc>
+    <lastmod>2021-02-17T13:40:01-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/2020-10-30_how-i-use-node-js-professionally/</loc>
+    <lastmod>2020-10-30T13:40:01-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/javascript/</loc>
+    <lastmod>2020-10-30T13:40:01-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/node.js/</loc>
+    <lastmod>2020-10-30T13:40:01-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/projects/test2/</loc>
+    <lastmod>2020-10-11T17:21:00-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/projects/websites/</loc>
+    <lastmod>2020-10-11T17:21:00-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/2020-08-09_data-access-models-with-node/</loc>
+    <lastmod>2020-08-09T13:40:01-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/database/</loc>
+    <lastmod>2020-08-09T13:40:01-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/2020-08-08_node-js-and-relational-databases/</loc>
+    <lastmod>2020-08-08T13:40:01-06:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/categories/</loc>
   </url>
 </urlset>

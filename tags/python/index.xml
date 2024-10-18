@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on GroverCoder</title>
+    <link>//localhost:1313/tags/python/</link>
+    <description>Recent content in Python on GroverCoder</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 09 Oct 2024 16:01:10 -0600</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Ollama locally with Python</title>
+      <link>//localhost:1313/posts/2024108-local-ollama-python/</link>
+      <pubDate>Wed, 09 Oct 2024 16:01:10 -0600</pubDate>
+      <guid>//localhost:1313/posts/2024108-local-ollama-python/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;&#xA;  Overview&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#overview&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;AI and LLMs are all the rage these days.  Incorporating them into your code can open up a number of possibilities.  Using the online resources / APIs have some issues though:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;your code may need to survive even if the online resource changes or is no longer available&lt;/li&gt;&#xA;&lt;li&gt;your code may be rate limited or blocked if thresholds are exceeded&lt;/li&gt;&#xA;&lt;li&gt;the token cost may accummulate much quicker than you were expecting.  In practice that $0.0012 process is fine, once you go live you might find though that that process is run millions of times in a short time frame. (Perhaps this is a good problem to have?)&lt;/li&gt;&#xA;&lt;li&gt;there may be legal issues passing your data or intellectual property to an upstream provider who is not always clear how that data may be used.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Sometimes running a LLM process locally is a better choice.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

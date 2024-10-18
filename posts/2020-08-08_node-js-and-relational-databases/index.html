@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Node.JS and Relational Databases · GroverCoder
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="GroverCoder">
+<meta name="description" content="In this article we do a quick WHY you might need access to relational databases, and then show a brief HOW you can do it.
+
+Data storage is an important part of any computer application. Collected data needs to be stored for later analysis, or data needs to be retrieved to generate desired outputs. There are many ways of storing memory — file storage (including text and/or binary options), relational databases, NoSQL systems, and I’m sure I’ve missed a few.">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Node.JS and Relational Databases">
+  <meta name="twitter:description" content="In this article we do a quick WHY you might need access to relational databases, and then show a brief HOW you can do it.
+Data storage is an important part of any computer application. Collected data needs to be stored for later analysis, or data needs to be retrieved to generate desired outputs. There are many ways of storing memory — file storage (including text and/or binary options), relational databases, NoSQL systems, and I’m sure I’ve missed a few.">
+
+<meta property="og:url" content="//localhost:1313/posts/2020-08-08_node-js-and-relational-databases/">
+  <meta property="og:site_name" content="GroverCoder">
+  <meta property="og:title" content="Node.JS and Relational Databases">
+  <meta property="og:description" content="In this article we do a quick WHY you might need access to relational databases, and then show a brief HOW you can do it.
+Data storage is an important part of any computer application. Collected data needs to be stored for later analysis, or data needs to be retrieved to generate desired outputs. There are many ways of storing memory — file storage (including text and/or binary options), relational databases, NoSQL systems, and I’m sure I’ve missed a few.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2020-08-08T13:40:01-06:00">
+    <meta property="article:modified_time" content="2020-08-08T13:40:01-06:00">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="Database">
+
+
+
+
+<link rel="canonical" href="//localhost:1313/posts/2020-08-08_node-js-and-relational-databases/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+  
+  
+    
+    
+    <link rel="stylesheet" href="/scss/projects.css" media="screen">
+  
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="//localhost:1313/">
+      GroverCoder
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="//localhost:1313/posts/2020-08-08_node-js-and-relational-databases/">
+              Node.JS and Relational Databases
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2020-08-08T13:40:01-06:00">
+                August 8, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              8-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/javascript/">Javascript</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/database/">Database</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      
+      <div class="tableofcontents">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#abstraction-layers-vs-object-relational-mappingsystems">Abstraction Layers vs Object Relational Mapping systems</a></li>
+    <li><a href="#nodejs-options">Node.JS options</a></li>
+    <li><a href="#getting-started-withknexjs">Getting started with Knex.JS</a></li>
+    <li><a href="#migrations">Migrations</a></li>
+    <li><a href="#using-knex-in-yourmodules">Using Knex in your modules</a></li>
+  </ul>
+</nav>
+      </div>
+      
+
+      <div class="post-content">
+        
+        <p>In this article we do a quick WHY you might need access to relational databases, and then show a brief HOW you can do it.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*af_kLxa3TrrdhiFS" alt="Unsplash Image - Markus Spiske"></p>
+<p>Data storage is an important part of any computer application. Collected data needs to be stored for later analysis, or data needs to be retrieved to generate desired outputs. There are many ways of storing memory — file storage (including text and/or binary options), relational databases, <a href="https://en.wikipedia.org/wiki/NoSQL"  class="external-link" target="_blank" rel="noopener">NoSQL</a> systems, and I’m sure I’ve missed a few.</p>
+<p><a href="https://en.wikipedia.org/wiki/SQL"  class="external-link" target="_blank" rel="noopener">SQL</a> is a standard shared across many different relational database management systems (aka <em>RDBMS</em>). The SQL that gets implemented sometimes varies from the official standard. Those variations don’t matter too much if you stay within the same database platform. However the moment you start moving between different database vendors or even different versions within the same vendor, the differences can become important. Shifting between relational and no relational systems brings even more work.</p>
+<p>You could use a DB specific library to talk to your database. For instance you could do <code>npm install sqlite3 mysql pgsql,mssql</code> to bring in the ability to communicate with a SQLite, MySQL/MariaDB, PostgreSQL, or a Microsoft SQL Server system — you would normally only see one of these used by an application.</p>
+<p>Using this specific DB library does work and exposes the full capabilities of the database system. If the DB is ever changed though — or worse yet you don’t know what the DB will be until the actual system installation is done — then this quickly breaks down. The library for one type of database cannot properly talk to a different type of database.</p>
+<p>Wouldn’t it be nice if there was a way you could write your code without worrying about which database system may be used for your application?</p>
+<p>Enter the concept of Database Abstraction. In short, this is a library that presents a layer above the specific DB libraries. This layer separates the database specifics from your application code. You get to write your code once, and then if/when the database needs to change you just make a minor configuration change (and install the support libraries that may be needed). But your code itself — with all of its query goodness — does not change.</p>
+<p>There is a disclaimer needed here. If you use a database abstraction system and then use a feature that is very specific to your database, then your code will most definitely need changes to address that when the database vendor changes.</p>
+<p>For instance stored procedures are generally platform specific extensions to SQL — that functionality would need to be recreated in the new database system if it were used. That does not mean stored procedures cannot be used though. They would just need to be used consciously of the implications.</p>
+<h2 id="abstraction-layers-vs-object-relational-mappingsystems">
+  Abstraction Layers vs Object Relational Mapping systems
+  <a class="heading-link" href="#abstraction-layers-vs-object-relational-mappingsystems">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>There is some overlap between the idea of an abstraction layer and an Object Relational Mapping system. Both provide some automated ways for talking to your database. The ORM though goes further and attempts to understand your database structure. With an abstraction layer you can create an INSERT statement that works across whatever DB system is configured. With an ORM, you could extend that insert to create the new record AND the related records with a single command.</p>
+<p>ORMs may be powerful and convenient in some cases. My own experience suggests they come with a cost though and using them can quickly result in more work than necessary. (I might post about this sometime if anyone is interested)</p>
+<p>You may be thinking Sequelize should be mentioned here. Sequelize is an ORM and does more than simple database abstraction. My experience with Sequelize is limited, but it just never clicked for me.</p>
+<p>If I wanted to use an ORM I would use Objection.JS. Objection is built on top of Knex.JS. I tried to implement Objection for a major project and eventually had to rollback to just using Knex. Not because Objection wasn’t capable, but because our use case broke the limits of what Objection should do with regards to the relations. (Which *could* have been some bad design choices on the part of the developer — er, that would be me…)</p>
+<h2 id="nodejs-options">
+  Node.JS options
+  <a class="heading-link" href="#nodejs-options">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>I’m sure I’m missing some great options but for me <a href="http://knexjs.org/"  class="external-link" target="_blank" rel="noopener">Knex.JS</a> is the only real choice. It is lightweight and tries to be as unopinionated as possible.</p>
+<p>Knex is simple enough and follows pretty close with the normal SQL language.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">records</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">knex</span>(<span style="color:#e6db74">&#39;tasks&#39;</span>)  
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">where</span>({<span style="color:#a6e22e">user_id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">5</span>})  
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">orderBy</span>(<span style="color:#e6db74">&#39;task_date&#39;</span>);
+</span></span></code></pre></div><p>This JS code would result in <code>select * from tasks where user_id = 5 order by task_date</code>. There are many options for what goes inside the brackets, and all can be dynamic. While the SQL is simple, the capabilities that Knex represents is very powerful.</p>
+<h2 id="getting-started-withknexjs">
+  Getting started with Knex.JS
+  <a class="heading-link" href="#getting-started-withknexjs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Read the docs at <a href="http://knexjs.org/"  class="external-link" target="_blank" rel="noopener">Knex.JS</a>. This is the defacto “source” for any Knex information.</p>
+<p>Getting started is as simple as doing an <code>npm install</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir dbProject  
+</span></span><span style="display:flex;"><span>cd dbProject  
+</span></span><span style="display:flex;"><span>npm init -y  
+</span></span><span style="display:flex;"><span>npm  install knex pg
+</span></span></code></pre></div><p>This sets up a practice project and installs knex. We also install the “pg” library to talk with a PostgreSQL database. If you are intending on using MySQL, then replace “pg” with “mysql”. If you are going to use a different database system, then just ensure you have a library to talk to it installed. The Knex docs give more info on this.</p>
+<p>Now that we have knex, we need to set things up. I like to do this with an NPM script. So I alter my <code>package.json</code>&rsquo;s script section</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#f92672">:</span> {  
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;knex&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;knex&#34;</span>,  
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;echo &#34;Error: no test specified&#34; &amp;&amp; exit 1&#39;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div><p>Now we can issue the command <code>npm run knex init</code> in our project directory. This will create a <code>knexfile.js</code> file. Examine that file and you will see a standard Node module returning an object that has environment specific configurations. This allows you to use SQLite for testing, MySQL for development, but MSSQL for production, if you desired. (that sounds like a bad mix, but it *is* feasible). You alter the connections to whatever you need for your environment. You could remove the “staging” and “production” objects and just use the “development” object.</p>
+<p>You set the <code>client</code> property to match which database system you are using. And then you set the <code>connection</code> property with the details for connecting to your server — host name/ip, username, password, etc.</p>
+<p>Once you have that done you can now talk to the database and execute commands against it.</p>
+<h2 id="migrations">
+  Migrations
+  <a class="heading-link" href="#migrations">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Knex uses what is known as a ‘Migration’ to create, drop, and alter the database elements. These migration files can set up indexes, foreign keys, or even run custom SQL if needed. The intent here is that we can “apply” the migrations that have not yet been applied to our database and bring the system up to date. Or return the system to a previous state before we added that problematic index (or table).</p>
+<p>Knex has a convenience method for creating and running migrations.</p>
+<p>npm run knex migrate:make create_tasks_table</p>
+<p>This generates a file in the <code>migrations</code> directory. The directory is created if it does not exist. And you can specify where the directory gets created and what to call it in the <code>knexfile.js</code> file. The generated file has a name in the form of <code>20200807222531_create_tasks_table</code>. That is Year, Month, Day, Hour, Minute, Second followed by a description. Do not alter the FORMAT of this name, though changing name is allowed — unless it has already been applied to the database. (if you apply the change, then change the filename, then try to rollback, you will encounter errors because the original file name no longer exists.)</p>
+<p>The contents of that file looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">up</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">knex</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">down</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">knex</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>Then we can call the Knex Schema system to create and drop our table whenever this migration is applied or un-applied.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">up</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">knex</span>) {  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">knex</span>.<span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">createTable</span>(<span style="color:#e6db74">&#39;tasks&#39;</span>, <span style="color:#a6e22e">table</span> =&gt; {  
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">table</span>.<span style="color:#a6e22e">increments</span>(<span style="color:#e6db74">&#39;id&#39;</span>)  
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">table</span>.<span style="color:#a6e22e">string</span>(<span style="color:#e6db74">&#39;name&#39;</span>)  
+</span></span><span style="display:flex;"><span> })  
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">down</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">knex</span>) {  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">knex</span>.<span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">dropTable</span>(<span style="color:#e6db74">&#39;tasks&#39;</span>)  
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>It is important to note that the <code>up</code> and <code>down</code> methods must return a promise. See the <a href="http://knexjs.org/#Schema-Building"  class="external-link" target="_blank" rel="noopener">Schema Docs</a> for more details what you can do here.</p>
+<p>Now we can run <code>npm run knex migrate:latest</code> to apply that change to the database. If your connection is all set up and there are no errors, your database should have a tasks table now. But it will also have ‘migrations’ and ‘migrations-lock’ tables as well. These help track which migrations have been applied.</p>
+<h2 id="using-knex-in-yourmodules">
+  Using Knex in your modules
+  <a class="heading-link" href="#using-knex-in-yourmodules">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Finally to use Knex in our application we need to call it.</p>
+<p>I usually create a <code>_connection.js</code> file that contains the details of how to connect to the database. This file calls the Knex object with the appropriate configuration settings.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./knexfile.js&#39;</span>)  
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Knex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;knex&#39;</span>)  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Knex</span>(<span style="color:#a6e22e">config</span><span style="color:#960050;background-color:#1e0010">\</span>[<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">NODE</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">_ENV</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;development&#39;</span><span style="color:#960050;background-color:#1e0010">\</span>])
+</span></span></code></pre></div><p>I do this because sometimes I need something more complex here. I may be setting up multiple connections, or doing other work related to setting up the database. Added bonus for the resulting knex object being treated as a <a href="https://en.wikipedia.org/wiki/Singleton_pattern"  class="external-link" target="_blank" rel="noopener">singleton</a> thanks to the module system.</p>
+<p>Once that is done, I create what I call a “Model” that will do the data work.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// src/models/task.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">knex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./connection.js&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getAll</span>() {  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">knex</span>(<span style="color:#e6db74">&#39;tasks&#39;</span>).<span style="color:#a6e22e">orderBy</span>(<span style="color:#e6db74">&#39;name&#39;</span>)  
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {  
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">getAll</span>  
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Now I can require that file and use it wherever needed in my application:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// src/services/current.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">TaskModel</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;../models/task.js&#39;</span>)  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">TaskModel</span>.<span style="color:#a6e22e">getAll</span>())
+</span></span></code></pre></div><p>If I have data in my tasks table, I will end up with an array of objects representing each record in that table.</p>
+<p>Boom! We have RDBMS connectivity with a great deal of potential.</p>
+<p>Of course the details get a little more involved, but this should get you started and pointed in the right direction.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2020 -
+    
+    2024
+     GroverCoder 
+    
+    
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

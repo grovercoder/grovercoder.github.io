@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Data Access Models with Node · GroverCoder
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="GroverCoder">
+<meta name="description" content="Instead of writing CRUD methods for every table we need to access, we can create a module that provides the data and can be extended as…
+
+
+Photo by Maarten van den Heuvel on Unsplash
+Instead of writing CRUD methods for every table we need to access, we can create a module that provides the data and can be extended as needed. This article goes through that process and provides a sample application summarising the steps.">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Data Access Models with Node">
+  <meta name="twitter:description" content="Instead of writing CRUD methods for every table we need to access, we can create a module that provides the data and can be extended as…
+Photo by Maarten van den Heuvel on Unsplash
+Instead of writing CRUD methods for every table we need to access, we can create a module that provides the data and can be extended as needed. This article goes through that process and provides a sample application summarising the steps.">
+
+<meta property="og:url" content="//localhost:1313/posts/2020-08-09_data-access-models-with-node/">
+  <meta property="og:site_name" content="GroverCoder">
+  <meta property="og:title" content="Data Access Models with Node">
+  <meta property="og:description" content="Instead of writing CRUD methods for every table we need to access, we can create a module that provides the data and can be extended as…
+Photo by Maarten van den Heuvel on Unsplash
+Instead of writing CRUD methods for every table we need to access, we can create a module that provides the data and can be extended as needed. This article goes through that process and provides a sample application summarising the steps.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2020-08-09T13:40:01-06:00">
+    <meta property="article:modified_time" content="2020-08-09T13:40:01-06:00">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="Database">
+
+
+
+
+<link rel="canonical" href="//localhost:1313/posts/2020-08-09_data-access-models-with-node/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+  
+  
+    
+    
+    <link rel="stylesheet" href="/scss/projects.css" media="screen">
+  
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="//localhost:1313/">
+      GroverCoder
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="//localhost:1313/posts/2020-08-09_data-access-models-with-node/">
+              Data Access Models with Node
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2020-08-09T13:40:01-06:00">
+                August 9, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              17-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/javascript/">Javascript</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/database/">Database</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      
+      <div class="tableofcontents">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#first-draft">First Draft</a></li>
+    <li><a href="#defining-theschema">Defining the Schema</a></li>
+    <li><a href="#defining-the-database-connection">Defining the Database Connection</a></li>
+    <li><a href="#creating-a-better-instanceobject">Creating a better instance object</a></li>
+    <li><a href="#adding-functionality-to-themodels">Adding functionality to the models</a></li>
+    <li><a href="#private-vs-public-propertiesmethods">Private vs Public Properties/Methods</a></li>
+    <li><a href="#the-final-_modeljs-file">The final _model.js file</a></li>
+    <li><a href="#overwriting-methods">Overwriting methods</a></li>
+    <li><a href="#sample-repository">Sample Repository</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+      </div>
+      
+
+      <div class="post-content">
+        
+        <p>Instead of writing CRUD methods for every table we need to access, we can create a module that provides the data and can be extended as…</p>
+<hr>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*10xBxuQ2K3uH7E0O" alt=""></p>
+<p>Photo by <a href="https://unsplash.com/@mvdheuvel?utm_source=medium&amp;utm_medium=referral"  class="external-link" target="_blank" rel="noopener">Maarten van den Heuvel</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral"  class="external-link" target="_blank" rel="noopener">Unsplash</a></p>
+<p>Instead of writing CRUD methods for every table we need to access, we can create a module that provides the data and can be extended as needed. This article goes through that process and provides a sample application summarising the steps.</p>
+<p>The related repository can be found at <a href="https://github.com/grovercoder/article-data-access-model"  class="external-link" target="_blank" rel="noopener">https://github.com/grovercoder/article-data-access-model</a>.</p>
+<hr>
+<p>I’ve written many applications and just about every one of them needs a common entity — a data access model specific to a database table. In the past I’ve created these on the fly but the issue keeps coming up so it is time to make this easier.</p>
+<p>We may be able to accomplish this by using an Object Relational Mapping system like <a href="https://sequelize.org/"  class="external-link" target="_blank" rel="noopener">Squelize</a> or <a href="https://vincit.github.io/objection.js/"  class="external-link" target="_blank" rel="noopener">Objection.JS</a>. These are robust generic systems which may do way more than we will ever need. In some cases adding yet another framework into your application is not the best solution. In my case, the database needs are either very basic, or very specific to the application and database. So an ORM is normally not the right answer.</p>
+<p>What we want is a simple generic module that provides the common CRUD methods, yet can be extended with additional functionality.</p>
+<p><strong>Note:</strong> We are talking about abstract ideas here. But when it comes time to USE those ideas, we need a concrete example. We will assume a simple Tasks database as we work through the code. That DB will have two tables — groups and tasks. We will use these as we build up the instances.</p>
+<h2 id="requirements">
+  Requirements
+  <a class="heading-link" href="#requirements">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>We should probably define what we are trying to build in a little more detail so that we know when we are done.</p>
+<ul>
+<li>The core module should not have any knowledge of the database or table.</li>
+<li>The database connection and the table schema (aka the list of fields and their data types) should be passed into the module.</li>
+<li>The module will then use the schema information to build the necessary functions.</li>
+<li>The module will export an object that can then be immediately used to work with the table specified.</li>
+<li>The solution should allow some fields to be “guarded”. That is, when a record or record set is returned, the guarded fields should be omitted from the output. (i.e. a user’s password should not be included in the default usage patterns.) Guarded fields are still available though through custom methods if desired.</li>
+<li>The CRUD methods should all be defined on the exported object.</li>
+<li>The CRUD methods can be overridden if needed.</li>
+<li>The exported object may include read-only informational properties (i.e. reflect back the tablename, the schema, and the guarded values as they are currently set).</li>
+</ul>
+<h2 id="first-draft">
+  First Draft
+  <a class="heading-link" href="#first-draft">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Based on those requirements we are after something that looks a little like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// first draft of _model.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">create</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">find</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">findById</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">update</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">remove</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// possible usage:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// get a reference to the model
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">model</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./_model.js&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// create a record
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">create</span>({<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Task #1&#39;</span>, <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Make sure the first task gets done.&#39;</span>, <span style="color:#a6e22e">completed</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// find a record using an ID
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">record</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">findById</span>(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// find a record using an AND match of the specified properties
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">record2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">find</span>({<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Task #1&#39;</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// update a record
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">update</span>({<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">completed</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// remove a record using its ID
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">remove</span>(<span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><p>We can see that this immediately fails because we have no way to specify the tablename, schema, or guarded values. We can address this by exporting a function instead of an object. The function would take in the desired data via a <code>config</code> parameter, and return the desired object. This is an implementation of a <a href="https://en.wikipedia.org/wiki/Factory_method_pattern"  class="external-link" target="_blank" rel="noopener">factory method</a> then.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// version 2 of _model.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">config</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">create</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">find</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">findById</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">update</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">remove</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// usage:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">TaskModel</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./_model.js&#39;</span>)({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">connection</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">tablename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;tasks&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">schema</span><span style="color:#f92672">:</span> {},
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">guarded</span><span style="color:#f92672">:</span> []
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">TaskModel</span>.<span style="color:#a6e22e">create</span>({<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Task 2&#39;</span>, <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Order Pizza&#39;</span>, <span style="color:#a6e22e">completed</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>})
+</span></span></code></pre></div><p>Here we are utilising <em>Dependency Injection</em> to pass in the database connection and other model configurations. Our <code>_model.js</code> file then does not have a dependency on anything specific (yet).</p>
+<p>To continue we need to make two choices that will tie down how the module can be used in the future.</p>
+<ul>
+<li>First, we need to decide how we will specify the table schema.</li>
+<li>Secondly we need to decide what our database connection object will look like.</li>
+</ul>
+<p>Both lock this version of the module down to those specific decisions. For instance, if we decide that the connection will be a configured Knex.JS object, then we can never use this definition of the model for a MongoDB data store. (Not unless our MongoDB connection has the same methods as the Knex.JS object.) With some effort we can mitigate that, perhaps with an Adapter pattern. For our purposes though we will keep things (relatively) simple and assume that we would just create a different instance of the module to handle different connection types. So we might end up with <code>_model.knex.js</code> and <code>_model.mongo.js</code> . Then our application models could just require the appropriate base module. This is just one option though.</p>
+<h2 id="defining-theschema">
+  Defining the Schema
+  <a class="heading-link" href="#defining-theschema">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>We could just define our schema with an array, or even an array of objects. Or a comma delimited string. However <a href="https://json-schema.org/"  class="external-link" target="_blank" rel="noopener">JSON Schema</a> is already a great tool that addresses this needs. Not only does it allow us to define our fields and field types (in a way that works for JS), it allows us to use a standard system and not need to define our own.</p>
+<p>We will require that all instances of our model object must pass in a JSON Schema object to define the list of fields for our table. We’ll see an example of this in a moment.</p>
+<h2 id="defining-the-database-connection">
+  Defining the Database Connection
+  <a class="heading-link" href="#defining-the-database-connection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>As described above, we could pick any database connection object. For our example here we will use Knex.JS. Simply because I need to connect to RDBMS type databases on a regular basis, and I believe this is a very common task.</p>
+<h2 id="creating-a-better-instanceobject">
+  Creating a better instance object
+  <a class="heading-link" href="#creating-a-better-instanceobject">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>We have so far just been using our core model in the usage sections. This is not how we would do it for real though. Instead, lets create an actual instance for both of our sample tables — Groups and Tasks.</p>
+<p>A quick note about the naming standards. My models are named using the SINGULAR tense of the the table name. The table name is the PLURAL tense of the objects the table contains.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// guard.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// assume the _connection.js file sets up, configures, and returns a Knex.JS object
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">knex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./_connection.js&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Model</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./_model.js&#39;</span>)({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">knex</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">tablename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;groups&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">schema</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;groups&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;object&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">required</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;name&#39;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;integer&#39;</span> },
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;string&#39;</span> },
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">created_at</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;string&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;date-time&#39;</span>,
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">guarded</span><span style="color:#f92672">:</span> [],
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Model</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// task.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// assume the _connection.js file sets up, configures, and returns a Knex.JS object
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">knex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./_connection.js&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Model</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./_model.js&#39;</span>)({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">knex</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">tablename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;tasks&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">schema</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;tasks&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;object&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">required</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;name&#39;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;integer&#39;</span> },
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">group_id</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;integer&#39;</span> },
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">public_code</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;string&#39;</span> },
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;string&#39;</span> },
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;string&#39;</span> },
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">completed</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;boolean&#39;</span> },
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">created_at</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;string&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;date-time&#39;</span>,
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">guarded</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;public_code&#39;</span>],
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Model</span>
+</span></span></code></pre></div><p>Here we are passing the “knex” object into the models, along with the tablename, schema and guarded values.</p>
+<p>We’ve included the “guarded” value for the Task model so that we do not need to revisit this later. Imagine that the <code>public_code</code> field is generated by the database and used in a third party system, but our code doesn’t really need it. By marking it guarded, it will be omitted from the output of our model functions. (we need to build that yet). So, the guarded value is just an array of field names that match the “properties” of the JSON Schema object. An empty array is valid too, indicating we do not need to guard any fields.</p>
+<p>The Schema looks complex, but it is mostly just cut and paste an existing definition and tweak it as needed. There is more we can do/specify with JSON Schemas, but we are most interested in the list of properties at this time. The <code>required</code> property can be very useful as well, but I’ll leave that to you to extend if/when you need it.</p>
+<p>Our instance model definitions are complete then. From here we have access to all the functionality our _model.js module exposes for us. That is very little right now though.</p>
+<h2 id="adding-functionality-to-themodels">
+  Adding functionality to the models
+  <a class="heading-link" href="#adding-functionality-to-themodels">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>There are two needed functions we have not yet talked about:</p>
+<ul>
+<li>The <code>guard()</code> method. This method examines a data object and removes any properties named in the <code>guarded</code> array. This is mostly an internal function that will get called by the CRUD methods where needed.</li>
+<li>A <code>populate()</code> method. This accepts a data object and then extracts only the properties that match with the schema’s defined properties. This provides us with a rudimentary validation process and ensures the resulting data object can be used in our create and update methods. No additional checks are needed to ensure we didn’t inadvertently pass in a non-existent field. Again, this is mostly an internal method. (Good validation is still strongly recommended though, but is beyond the scope of this article…)</li>
+</ul>
+<p>We will create these two methods first as the rest depend on them AND these both nicely define the secret for the remaining CRUD functions.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// version 3 of _model.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">moment</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;moment&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">config</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_guard</span>(<span style="color:#a6e22e">config</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">record</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">guarded</span>)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">field</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">guarded</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">record</span>[<span style="color:#a6e22e">field</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">record</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_populate</span>(<span style="color:#a6e22e">config</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">data</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">output</span> <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">schema</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">properties</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">field</span> <span style="color:#66d9ef">of</span> Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">properties</span>)) {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">prop</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">properties</span>[<span style="color:#a6e22e">field</span>]
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">val</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>[<span style="color:#a6e22e">field</span>]
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e">// only include properties from the data variable that
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          <span style="color:#75715e">// a) exist in the schema properties list, and
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          <span style="color:#75715e">// b) are assigned a value (skip undefined values)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">val</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;undefined&#39;</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">prop</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;integer&#39;</span>) {
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">val</span> <span style="color:#f92672">=</span> parseInt(<span style="color:#a6e22e">val</span>, <span style="color:#ae81ff">10</span>) <span style="color:#f92672">||</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">prop</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;number&#39;</span>) {
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">val</span> <span style="color:#f92672">=</span> parseFloat(<span style="color:#a6e22e">val</span>, <span style="color:#ae81ff">10</span>) <span style="color:#f92672">||</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">prop</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;string&#39;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">prop</span>.<span style="color:#a6e22e">format</span>) {
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">val</span> <span style="color:#f92672">=</span> String(<span style="color:#a6e22e">val</span>)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">prop</span>.<span style="color:#a6e22e">format</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;date-time&#39;</span>) {
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">val</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">moment</span>(<span style="color:#a6e22e">val</span>) <span style="color:#f92672">||</span> <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">output</span>[<span style="color:#a6e22e">field</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">val</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">output</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">output</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">guard</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">_guard</span>(<span style="color:#a6e22e">config</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">populate</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">_populate</span>(<span style="color:#a6e22e">config</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">create</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">find</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">findById</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">update</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">remove</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>First we define two functions within the factory method — <code>_guard</code> and <code>_populate</code> . Both are functions that return a function. The <code>config</code> parameter (defined as part of the module’s factory method) is passed into both methods. This allows us access to the configuration data. Without this approach we would need to call the functions in the form of <code>MyModel.guard(config, record)</code> which just is not natural. Instead we want <code>MyModel.guard(record)</code> and the “MyModel” object should already know what config info is needed.</p>
+<p>The <code>guard</code> method is straight forward. The function it returns accepts a “record” parameter (which is just expected to be any normal key/value object). It checks to see if our model configuration has defined a guarded array. If so it loops over each value in the guarded array and removes that field from the record object. Then the record object is returned, without the undesired fields.</p>
+<p>The populate method is only a little more complex. The function it returns takes in a “data” object. It checks to see if the model has defined a schema.properties object. If so, it extracts the keys from that object and loops over them. The property object is extracted from the schema — this will be used later to make sure we return the correct data type. And the current value of the incoming data object is extracted, as we will be working with this a bit. If the extracted value is defined, then we compare it with the schema property’s type to ensure it is set to an appropriate JS data type.</p>
+<p>This section can be expanded to include other items if/when needed. For instance if the property format is “email”, you might want to validate that the current value is a proper email address, or wrap it in a mailto anchor tag. Feel free to expand this section if needed. (Or ANY of the code, of course).</p>
+<p>The method of passing the config object to a function that will then return the final version of the function is repeated for each of the CRUD operations. These then do the steps necessary to perform the appropriate CRUD action, but using the config object to set that up. For instance the findById method can be accomplished with the command <code>config.knex(config.tablename).where({id: passedInID}).first()</code>. This is a simple Knex.JS command. In the code below I call a few Knex methods and the logic should be pretty clear. I recommend looking at the Knex.JS documentation to learn more about what can/should be done here.</p>
+<h2 id="private-vs-public-propertiesmethods">
+  Private vs Public Properties/Methods
+  <a class="heading-link" href="#private-vs-public-propertiesmethods">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>In the current version of our model, we have set <code>guard</code> and <code>populate</code> methods on the returned object. These are now public properties to the object and can be overwritten. Our CRUD methods will be the public as well. This meets our requirement that they can be overwritten.</p>
+<p>BUT, we have a requirement that says we should have some read only properties that expose the current configuration settings for tablename, schema, and guarded. We can accomplish this by making use of the native JS <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"  class="external-link" target="_blank" rel="noopener">Object.defineProperty</a> method. Instead of returning the desired object directly from the factory method, we can place it into a temporary variable, add our read only properties, and then return the temporary variable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">output</span> <span style="color:#f92672">=</span> {...}    
+</span></span><span style="display:flex;"><span>Object.<span style="color:#a6e22e">defineProperty</span>(<span style="color:#a6e22e">output</span>, <span style="color:#e6db74">&#39;_tablename&#39;</span>, {<span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">tablename</span>, <span style="color:#a6e22e">writeable</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#a6e22e">output</span>
+</span></span></code></pre></div><p>We will clean up the code a little and assign our methods AFTER we assign our read only properties. This will result in the read only items being at the top of the object when you do a console.log() on it.</p>
+<h2 id="the-final-_modeljs-file">
+  The final _model.js file
+  <a class="heading-link" href="#the-final-_modeljs-file">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>So our final _model.js file should look something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// version 4 of _model.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">config</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   *  GUARD
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_guard</span>(<span style="color:#a6e22e">config</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">record</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">guarded</span>)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">field</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">guarded</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">record</span>[<span style="color:#a6e22e">field</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">record</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   *  POPULATE
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_populate</span>(<span style="color:#a6e22e">config</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">data</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">output</span> <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">schema</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">properties</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">field</span> <span style="color:#66d9ef">of</span> Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">properties</span>)) {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">prop</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">properties</span>[<span style="color:#a6e22e">field</span>]
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">val</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>[<span style="color:#a6e22e">field</span>]
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e">// only include properties from the data variable that
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          <span style="color:#75715e">// a) exist in the schema properties list, and
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          <span style="color:#75715e">// b) are assigned a value (skip undefined values)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">val</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;undefined&#39;</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">prop</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;integer&#39;</span>) {
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">val</span> <span style="color:#f92672">=</span> parseInt(<span style="color:#a6e22e">val</span>, <span style="color:#ae81ff">10</span>) <span style="color:#f92672">||</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">prop</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;number&#39;</span>) {
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">val</span> <span style="color:#f92672">=</span> parseFloat(<span style="color:#a6e22e">val</span>, <span style="color:#ae81ff">10</span>) <span style="color:#f92672">||</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">prop</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;string&#39;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">prop</span>.<span style="color:#a6e22e">format</span>) {
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">val</span> <span style="color:#f92672">=</span> String(<span style="color:#a6e22e">val</span>)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">prop</span>.<span style="color:#a6e22e">format</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;date-time&#39;</span>) {
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">val</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">moment</span>(<span style="color:#a6e22e">val</span>) <span style="color:#f92672">||</span> <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">output</span>[<span style="color:#a6e22e">field</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">val</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">output</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">output</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   *  CREATE
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_create</span>(<span style="color:#a6e22e">config</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">populate</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_populate</span>(<span style="color:#a6e22e">config</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">guard</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_guard</span>(<span style="color:#a6e22e">config</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">data</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">record</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">populate</span>(<span style="color:#a6e22e">data</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">record</span>.<span style="color:#a6e22e">id</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">record</span>.<span style="color:#a6e22e">created_at</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// write the new record and return the guarded value of it
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newId</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">config</span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">knex</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">tablename</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">insert</span>(<span style="color:#a6e22e">record</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">returning</span>(<span style="color:#e6db74">&#39;id&#39;</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newRecord</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">config</span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">knex</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">tablename</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">where</span>({ <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">newId</span>[<span style="color:#ae81ff">0</span>] })
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">first</span>()
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">guard</span>(<span style="color:#a6e22e">newRecord</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   *  FIND
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_find</span>(<span style="color:#a6e22e">config</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">guard</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_guard</span>(<span style="color:#a6e22e">config</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">conditions</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">criteria</span> <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// discard conditions that do not match the schema
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">field</span> <span style="color:#66d9ef">of</span> Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">schema</span>.<span style="color:#a6e22e">properties</span>)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">conditions</span>[<span style="color:#a6e22e">field</span>] <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;undefined&#39;</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">criteria</span>[<span style="color:#a6e22e">field</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">conditions</span>[<span style="color:#a6e22e">field</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// get the data
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">records</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">knex</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">tablename</span>).<span style="color:#a6e22e">where</span>(<span style="color:#a6e22e">criteria</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">records</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">row</span>) =&gt; <span style="color:#a6e22e">guard</span>(<span style="color:#a6e22e">row</span>))
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   *  FINDBYID
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_findById</span>(<span style="color:#a6e22e">config</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">guard</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_guard</span>(<span style="color:#a6e22e">config</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">target</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">criteria</span> <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// get the data
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">record</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">config</span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">knex</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">tablename</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">where</span>({ <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">target</span> })
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">first</span>()
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">guard</span>(<span style="color:#a6e22e">record</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   *  UPDATE
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_update</span>(<span style="color:#a6e22e">config</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">populate</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_populate</span>(<span style="color:#a6e22e">config</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">guard</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_guard</span>(<span style="color:#a6e22e">config</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">newData</span>, <span style="color:#a6e22e">transaction</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">newData</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;undefined&#39;</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">`Record ID not specified`</span>)
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">record</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">populate</span>(<span style="color:#a6e22e">newData</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">record</span>.<span style="color:#a6e22e">id</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">record</span>.<span style="color:#a6e22e">created_at</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">record</span>.<span style="color:#a6e22e">updated_at</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date()
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">config</span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">knex</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">tablename</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">where</span>({ <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">newData</span>.<span style="color:#a6e22e">id</span> })
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">update</span>(<span style="color:#a6e22e">record</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">updatedRecord</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">config</span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">knex</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">tablename</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">where</span>({ <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">newData</span>.<span style="color:#a6e22e">id</span> })
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">first</span>()
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">updatedRecord</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">updatedRecord</span>.<span style="color:#a6e22e">id</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {}
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">guard</span>(<span style="color:#a6e22e">updatedRecord</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   *  REMOVE
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_remove</span>(<span style="color:#a6e22e">config</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">guard</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_guard</span>(<span style="color:#a6e22e">config</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">target</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">record</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">config</span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">knex</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">tablename</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">where</span>({ <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">target</span> })
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">first</span>()
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">knex</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">tablename</span>).<span style="color:#a6e22e">where</span>({ <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">target</span> }).<span style="color:#a6e22e">del</span>()
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">guard</span>(<span style="color:#a6e22e">record</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// create the output object
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">output</span> <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// add the read only properties
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  Object.<span style="color:#a6e22e">defineProperty</span>(<span style="color:#a6e22e">output</span>, <span style="color:#e6db74">&#39;_tablename&#39;</span>, {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">tablename</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">writeable</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>  Object.<span style="color:#a6e22e">defineProperty</span>(<span style="color:#a6e22e">output</span>, <span style="color:#e6db74">&#39;_schema&#39;</span>, {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">schema</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">writeable</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>  Object.<span style="color:#a6e22e">defineProperty</span>(<span style="color:#a6e22e">output</span>, <span style="color:#e6db74">&#39;_guarded&#39;</span>, {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">guarded</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">writeable</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// add the public methods that can be over written
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">output</span>.<span style="color:#a6e22e">guard</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_guard</span>(<span style="color:#a6e22e">config</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">output</span>.<span style="color:#a6e22e">populate</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_populate</span>(<span style="color:#a6e22e">config</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">output</span>.<span style="color:#a6e22e">create</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_create</span>(<span style="color:#a6e22e">config</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">output</span>.<span style="color:#a6e22e">find</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_find</span>(<span style="color:#a6e22e">config</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">output</span>.<span style="color:#a6e22e">findById</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_findById</span>(<span style="color:#a6e22e">config</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">output</span>.<span style="color:#a6e22e">update</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_update</span>(<span style="color:#a6e22e">config</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">output</span>.<span style="color:#a6e22e">remove</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_remove</span>(<span style="color:#a6e22e">config</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">output</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Assuming we have no errors, and the database connection module works properly, we would have full CRUD operations to every table we define an instance model for.</p>
+<h2 id="overwriting-methods">
+  Overwriting methods
+  <a class="heading-link" href="#overwriting-methods">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>One of our requirements is that the CRUD methods can be overwritten. Let us imagine that our Task model needs some additional functionality to the create method — we do not want to ever create a task where the name is ‘TASK’. And if the name is ‘RUN’ we want to change the name to ‘automated task’. Well, we still need a create method, we just need a specialised version of it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// task.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">knex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./_connection.js&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Model</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./_model.js&#39;</span>)({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">knex</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">tablename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;tasks&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">schema</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;tasks&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;object&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">required</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;name&#39;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;integer&#39;</span> },
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">group_id</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;integer&#39;</span> },
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">public_code</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;string&#39;</span> },
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;string&#39;</span> },
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;string&#39;</span> },
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">completed</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;boolean&#39;</span> },
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">created_at</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;string&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">format</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;date-time&#39;</span>,
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">guarded</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;public_code&#39;</span>],
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">core_create</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Model</span>.<span style="color:#a6e22e">create</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Model</span>.<span style="color:#a6e22e">create</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">data</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">name</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">name</span>.<span style="color:#a6e22e">toLowerCase</span>() <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;task&#39;</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;Invalid Task Name&#39;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">name</span>.<span style="color:#a6e22e">toLowerCase</span>() <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;run&#39;</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;automated task&#39;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">core_create</span>(<span style="color:#a6e22e">data</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Model</span>
+</span></span></code></pre></div><p>We start off with an identical definition of our model instance. Then we store a reference to the original <code>create</code> method. Next we assign a new function to the Model.create property. Inside that function we may choose to call the original method, or we could place the appropriate Knex code here to accomplish our task. The point here is that we have replaced the “core” create method.</p>
+<p>If you were to try <code>Model._tablename = ‘new value'</code> though you would receive an error as this is a read only propery.</p>
+<h2 id="sample-repository">
+  Sample Repository
+  <a class="heading-link" href="#sample-repository">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>I’ve created a <a href="https://github.com/grovercoder/article-data-access-model"  class="external-link" target="_blank" rel="noopener">sample repository</a> containing the ideas defined in this article. This sample code demonstrates why SQLite should not be used in production though. Our <code>create</code> and <code>update</code> methods on the <code>_model.js</code> file call the <code>.returning()</code> method from Knex. SQLite does not support this and prevents us from just getting the new or updated data directly. I’ve solved this in some applications by immediately doing a <code>.find()</code> with the populated record data, minus anything that would be generated automatically (like the created_at field). This might look something like the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">create</span>(<span style="color:#a6e22e">data</span>) {  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">record</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_populate</span>(<span style="color:#a6e22e">data</span>)  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">knex</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">tablename</span>).<span style="color:#a6e22e">insert</span>(<span style="color:#a6e22e">record</span>)  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">record</span>.<span style="color:#a6e22e">created_at</span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newRecord</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">knex</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">tablename</span>)  
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">where</span>(<span style="color:#a6e22e">record</span>)  
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">first</span>()  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">_guard</span>(<span style="color:#a6e22e">newRecord</span>)  
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This might work for you if you are using SQLite, or cannot rely on the <code>.returns()</code> method.</p>
+<h2 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>There is plenty we could do to improve on this. Add in better validation and error handling, handle database transactions, create a Test for the model, or just tweak it to our needs. This should be considered a starting point for your own application requirements.</p>
+<p>I’m open to comments / suggestions / questions to improve this. I’m just one man and I’ve built this with little peer review. The solution works will for my applications though. I hope you find it useful for your own apps.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2020 -
+    
+    2024
+     GroverCoder 
+    
+    
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>
