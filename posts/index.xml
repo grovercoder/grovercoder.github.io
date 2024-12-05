@@ -6,8 +6,15 @@
     <description>Recent content in Posts on GroverCoder</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 09 Oct 2024 16:01:10 -0600</lastBuildDate>
+    <lastBuildDate>Thu, 05 Dec 2024 09:54:01 -0600</lastBuildDate>
     <atom:link href="https://grovercoder.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Struggle is Real: Navigating the Gap between Cutting-Edge Tech and Mainstream Adoption</title>
+      <link>https://grovercoder.github.io/posts/2024-12-05-the-adoption-curve/</link>
+      <pubDate>Thu, 05 Dec 2024 09:54:01 -0600</pubDate>
+      <guid>https://grovercoder.github.io/posts/2024-12-05-the-adoption-curve/</guid>
+      <description>&lt;h1 id=&#34;the-struggle-is-real-navigating-the-gap-between-cutting-edge-tech-and-mainstream-adoption&#34;&gt;&#xA;  The Struggle is Real: Navigating the Gap between Cutting-Edge Tech and Mainstream Adoption&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#the-struggle-is-real-navigating-the-gap-between-cutting-edge-tech-and-mainstream-adoption&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Do you ever feel like your struggle to stay current with technology is mis-aligned with what businesses want?&lt;/p&gt;&#xA;&lt;p&gt;Your assessment is valid, and you&amp;rsquo;re not alone in feeling this way. The software development landscape is constantly evolving, and it&amp;rsquo;s challenging to keep up with the latest advancements. The phenomenon you are experiencing is often referred to as the &amp;ldquo;adoption curve&amp;rdquo; or &amp;ldquo;innovation diffusion.&amp;rdquo;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Using Ollama locally with Python</title>
       <link>https://grovercoder.github.io/posts/2024108-local-ollama-python/</link>

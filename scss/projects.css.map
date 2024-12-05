@@ -1,0 +1,13 @@
+{
+	"version": 3,
+	"file": "projects.css",
+	"sourceRoot": "/home/shawn/Projects/clients/grovercoder",
+	"sources": [
+		"assets/scss/projects.scss"
+	],
+	"sourcesContent": [
+		"li.project {\n    a {\n        text-decoration: none;\n        color: inherit;\n    }\n    .project-summary {\n        display: flex;\n        flex-direction: row;\n        align-items: start;\n        margin-bottom: 20px; /* Space between project summaries */\n        border: 1px solid transparent;\n        padding: 0.5em;\n        border-radius: 0.5em;\n        justify-content: space-between;\n\n        &:hover {\n            border: 1px solid silver;\n        }\n    \n        .project-thumbnail {\n            margin-right: 1em; /* Space between image and text on left */\n            margin-left: 0; /* Space between image and text on right */\n            max-width: 100px; /* Set maximum width for images */\n            height: auto; /* Maintain aspect ratio */\n            border-radius: 15px;\n        }\n    \n        .project-details { \n            display: flex;\n            flex-direction: column; /* Stack title and description vertically */\n            justify-content: center; /* Center vertically if needed */\n    \n            h2, p {\n                margin: 0; /* Remove default margin */\n            }           \n\n        }\n    }\n\n    &:nth-child(even) a .project-summary {\n        background-color: lighten(#212121, 10%);\n        // flex-direction: row-reverse;\n        // justify-content: flex-end;\n\n        // .project-thumbnail {\n        // }\n    }\n}"
+	],
+	"names": [],
+	"mappings": "AAAA,AACI,EADF,AAAA,QAAQ,CACN,CAAC,CAAC;EACE,eAAe,EAAE,IAAI;EACrB,KAAK,EAAE,OAAO,GACjB;;AAJL,AAKI,EALF,AAAA,QAAQ,CAKN,gBAAgB,CAAC;EACb,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,WAAW,EAAE,KAAK;EAClB,aAAa,EAAE,IAAI;EAAE,qCAAqC;EAC1D,MAAM,EAAE,qBAAqB;EAC7B,OAAO,EAAE,KAAK;EACd,aAAa,EAAE,KAAK;EACpB,eAAe,EAAE,aAAa,GAwBjC;EArCL,AAeQ,EAfN,AAAA,QAAQ,CAKN,gBAAgB,CAUV,KAAK,CAAC;IACJ,MAAM,EAAE,gBAAgB,GAC3B;EAjBT,AAmBQ,EAnBN,AAAA,QAAQ,CAKN,gBAAgB,CAcZ,kBAAkB,CAAC;IACf,YAAY,EAAE,GAAG;IAAE,0CAA0C;IAC7D,WAAW,EAAE,CAAC;IAAE,2CAA2C;IAC3D,SAAS,EAAE,KAAK;IAAE,kCAAkC;IACpD,MAAM,EAAE,IAAI;IAAE,2BAA2B;IACzC,aAAa,EAAE,IAAI,GACtB;EAzBT,AA2BQ,EA3BN,AAAA,QAAQ,CAKN,gBAAgB,CAsBZ,gBAAgB,CAAC;IACb,OAAO,EAAE,IAAI;IACb,cAAc,EAAE,MAAM;IAAE,4CAA4C;IACpE,eAAe,EAAE,MAAM;IAAE,iCAAiC,EAM7D;IApCT,AAgCY,EAhCV,AAAA,QAAQ,CAKN,gBAAgB,CAsBZ,gBAAgB,CAKZ,EAAE,EAhCd,EAAE,AAAA,QAAQ,CAKN,gBAAgB,CAsBZ,gBAAgB,CAKR,CAAC,CAAC;MACF,MAAM,EAAE,CAAC;MAAE,2BAA2B,EACzC;;AAlCb,AAuCI,EAvCF,AAAA,QAAQ,CAuCJ,SAAU,CAAA,IAAI,EAAE,CAAC,CAAC,gBAAgB,CAAC;EACjC,gBAAgB,EAAU,OAAO,GAMpC"
+}
