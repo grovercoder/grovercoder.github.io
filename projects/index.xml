@@ -1,26 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Projects on GroverCoder</title>
-    <link>https://grovercoder.github.io/projects/</link>
-    <description>Recent content in Projects on GroverCoder</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 11 Oct 2020 17:21:00 -0600</lastBuildDate>
-    <atom:link href="https://grovercoder.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Magento E-Commerce / ERP Integration</title>
-      <link>https://grovercoder.github.io/projects/test2/</link>
-      <pubDate>Sun, 11 Oct 2020 17:21:00 -0600</pubDate>
-      <guid>https://grovercoder.github.io/projects/test2/</guid>
-      <description>&lt;h2 id=&#34;description&#34;&gt;&#xA;  Description&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#description&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;The company had a number of physical stores and warehouses.  An E-Commerce solution was needed to integrate with the inventory and order fulfillment system the physical locations used.&lt;/p&gt;&#xA;&lt;p&gt;The organization had 50,000 products, each with their own set of properties that might change periodically.  They also had a very active sales team who would do weekly specials, and various promotions.&lt;/p&gt;&#xA;&lt;p&gt;Ensuring the website would see fast load times, yet have accurate information and provide a seamless user experience was a bit of a challenge to say the least.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Marketing Websites and Applications</title>
-      <link>https://grovercoder.github.io/projects/websites/</link>
-      <pubDate>Sun, 11 Oct 2020 17:21:00 -0600</pubDate>
-      <guid>https://grovercoder.github.io/projects/websites/</guid>
-      <description>&lt;h2 id=&#34;description&#34;&gt;&#xA;  Description&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#description&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Over time I have worked on many business websites and applications covering everything from brochure type sites to interactive marketing campaigns. The customers ranged from small organization up to and including fortune 500 companies with common name brand items. My solutions covered the all aspects of getting the project running - architecting the solution, creating the infrastructure, full stack development database design, and deployment systems.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Projects on GroverCoder</title><link>https://grovercoder.github.io/projects/</link><description>Recent content in Projects on GroverCoder</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 11 Oct 2020 17:21:00 -0600</lastBuildDate><atom:link href="https://grovercoder.github.io/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Magento E-Commerce / ERP Integration</title><link>https://grovercoder.github.io/projects/test2/</link><pubDate>Sun, 11 Oct 2020 17:21:00 -0600</pubDate><guid>https://grovercoder.github.io/projects/test2/</guid><description>&lt;h2 id="description">
+ Description
+ &lt;a class="heading-link" href="#description">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>The company had a number of physical stores and warehouses. An E-Commerce solution was needed to integrate with the inventory and order fulfillment system the physical locations used.&lt;/p>
+&lt;p>The organization had 50,000 products, each with their own set of properties that might change periodically. They also had a very active sales team who would do weekly specials, and various promotions.&lt;/p>
+&lt;p>Ensuring the website would see fast load times, yet have accurate information and provide a seamless user experience was a bit of a challenge to say the least.&lt;/p></description></item><item><title>Marketing Websites and Applications</title><link>https://grovercoder.github.io/projects/websites/</link><pubDate>Sun, 11 Oct 2020 17:21:00 -0600</pubDate><guid>https://grovercoder.github.io/projects/websites/</guid><description>&lt;h2 id="description">
+ Description
+ &lt;a class="heading-link" href="#description">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>Over time I have worked on many business websites and applications covering everything from brochure type sites to interactive marketing campaigns. The customers ranged from small organization up to and including fortune 500 companies with common name brand items. My solutions covered the all aspects of getting the project running - architecting the solution, creating the infrastructure, full stack development database design, and deployment systems.&lt;/p></description></item></channel></rss>

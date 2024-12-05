@@ -1,19 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Technology on GroverCoder</title>
-    <link>https://grovercoder.github.io/tags/technology/</link>
-    <description>Recent content in Technology on GroverCoder</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 05 Dec 2024 09:54:01 -0600</lastBuildDate>
-    <atom:link href="https://grovercoder.github.io/tags/technology/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>The Struggle is Real: Navigating the Gap between Cutting-Edge Tech and Mainstream Adoption</title>
-      <link>https://grovercoder.github.io/posts/2024-12-05-the-adoption-curve/</link>
-      <pubDate>Thu, 05 Dec 2024 09:54:01 -0600</pubDate>
-      <guid>https://grovercoder.github.io/posts/2024-12-05-the-adoption-curve/</guid>
-      <description>&lt;h1 id=&#34;the-struggle-is-real-navigating-the-gap-between-cutting-edge-tech-and-mainstream-adoption&#34;&gt;&#xA;  The Struggle is Real: Navigating the Gap between Cutting-Edge Tech and Mainstream Adoption&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#the-struggle-is-real-navigating-the-gap-between-cutting-edge-tech-and-mainstream-adoption&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Do you ever feel like your struggle to stay current with technology is mis-aligned with what businesses want?&lt;/p&gt;&#xA;&lt;p&gt;Your assessment is valid, and you&amp;rsquo;re not alone in feeling this way. The software development landscape is constantly evolving, and it&amp;rsquo;s challenging to keep up with the latest advancements. The phenomenon you are experiencing is often referred to as the &amp;ldquo;adoption curve&amp;rdquo; or &amp;ldquo;innovation diffusion.&amp;rdquo;&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Technology on GroverCoder</title><link>https://grovercoder.github.io/tags/technology/</link><description>Recent content in Technology on GroverCoder</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 05 Dec 2024 09:54:01 -0600</lastBuildDate><atom:link href="https://grovercoder.github.io/tags/technology/index.xml" rel="self" type="application/rss+xml"/><item><title>The Struggle is Real: Navigating the Gap between Cutting-Edge Tech and Mainstream Adoption</title><link>https://grovercoder.github.io/posts/2024-12-05-the-adoption-curve/</link><pubDate>Thu, 05 Dec 2024 09:54:01 -0600</pubDate><guid>https://grovercoder.github.io/posts/2024-12-05-the-adoption-curve/</guid><description>&lt;h1 id="the-struggle-is-real-navigating-the-gap-between-cutting-edge-tech-and-mainstream-adoption">
+ The Struggle is Real: Navigating the Gap between Cutting-Edge Tech and Mainstream Adoption
+ &lt;a class="heading-link" href="#the-struggle-is-real-navigating-the-gap-between-cutting-edge-tech-and-mainstream-adoption">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h1>
+&lt;p>Do you ever feel like your struggle to stay current with technology is mis-aligned with what businesses want?&lt;/p>
+&lt;p>Your assessment is valid, and you&amp;rsquo;re not alone in feeling this way. The software development landscape is constantly evolving, and it&amp;rsquo;s challenging to keep up with the latest advancements. The phenomenon you are experiencing is often referred to as the &amp;ldquo;adoption curve&amp;rdquo; or &amp;ldquo;innovation diffusion.&amp;rdquo;&lt;/p></description></item></channel></rss>

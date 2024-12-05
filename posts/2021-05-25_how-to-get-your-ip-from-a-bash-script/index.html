@@ -1,19 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <title>
-  How to get your IP from a BASH script · GroverCoder
-</title>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-
-
-<meta name="author" content="GroverCoder">
-<meta name="description" content="
+<!doctype html><html lang=en><head><title>How to get your IP from a BASH script · GroverCoder
+</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="GroverCoder"><meta name=description content="
   For when you have many network interfaces
   
     
@@ -29,7 +15,7 @@ Photo by Jonathan on Unsplash
     Link to heading
   
 
-ip addr show $(ip route | awk &#39;/default/ { print $5 }&#39;) | grep &#34;inet&#34; | head -n 1 | awk &#39;/inet/ {print $2}&#39; | cut -d&#39;/&#39; -f1
+ip addr show $(ip route | awk '/default/ { print $5 }') | grep &#34;inet&#34; | head -n 1 | awk '/inet/ {print $2}' | cut -d'/' -f1
 
 We use ip route and awk to determine the name of our default network interface
 We use ip addr to get the IP details for that interface
@@ -38,325 +24,30 @@ We then make sure we are only dealing with one line via the head command. There 
 We use awk to extract the IP address
 We use cut to strip off the subnet information if it is present
 
-This is a little verbose, but works very well for my use case. This can be done in a more concise manner with a little effort. Adopt this, or use another technique to suit your needs.">
-<meta name="keywords" content="blog,developer,personal">
-
-
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="How to get your IP from a BASH script">
-  <meta name="twitter:description" content=" For when you have many network interfaces Link to heading Photo by Jonathan on Unsplash
-The short version: Link to heading ip addr show $(ip route | awk &#39;/default/ { print $5 }&#39;) | grep &#34;inet&#34; | head -n 1 | awk &#39;/inet/ {print $2}&#39; | cut -d&#39;/&#39; -f1 We use ip route and awk to determine the name of our default network interface We use ip addr to get the IP details for that interface We grep for only the line(s) that indicate “inet” We then make sure we are only dealing with one line via the head command. There should only be a single “inet” line to begin with, but it is possible there could be more than one. We use awk to extract the IP address We use cut to strip off the subnet information if it is present This is a little verbose, but works very well for my use case. This can be done in a more concise manner with a little effort. Adopt this, or use another technique to suit your needs.">
-
-<meta property="og:url" content="https://grovercoder.github.io/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/">
-  <meta property="og:site_name" content="GroverCoder">
-  <meta property="og:title" content="How to get your IP from a BASH script">
-  <meta property="og:description" content=" For when you have many network interfaces Link to heading Photo by Jonathan on Unsplash
-The short version: Link to heading ip addr show $(ip route | awk &#39;/default/ { print $5 }&#39;) | grep &#34;inet&#34; | head -n 1 | awk &#39;/inet/ {print $2}&#39; | cut -d&#39;/&#39; -f1 We use ip route and awk to determine the name of our default network interface We use ip addr to get the IP details for that interface We grep for only the line(s) that indicate “inet” We then make sure we are only dealing with one line via the head command. There should only be a single “inet” line to begin with, but it is possible there could be more than one. We use awk to extract the IP address We use cut to strip off the subnet information if it is present This is a little verbose, but works very well for my use case. This can be done in a more concise manner with a little effort. Adopt this, or use another technique to suit your needs.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2021-05-25T13:40:01-06:00">
-    <meta property="article:modified_time" content="2021-05-25T13:40:01-06:00">
-    <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="Bash">
-    <meta property="article:tag" content="Command Line">
-
-
-
-
-<link rel="canonical" href="https://grovercoder.github.io/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/">
-
-
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ3RZ1R114"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-GQ3RZ1R114');
-</script>
-
-
-<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.b04b3b293fda1eeaad08ca369d0beb7106ec93f453ce9a8a3b787a21b76e7df6.css" integrity="sha256-sEs7KT/aHuqtCMo2nQvrcQbsk/RTzpqKO3h6IbduffY=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-  
-    
-    
-    <link rel="stylesheet" href="/css/coder-dark.min.38bd245a7922e87128d12aa12859e32c3455413c05485c304123a6af4db69763.css" integrity="sha256-OL0kWnki6HEo0SqhKFnjLDRVQTwFSFwwQSOmr022l2M=" crossorigin="anonymous" media="screen" />
-  
-
-
-
- 
-
-
-  
-  
-    
-    <link rel="stylesheet" href="/scss/projects.min.9b320a6c6cb302209029718d86a3057d0a0a38d5db23cda6664562857e6398d1.css" integrity="sha256-mzIKbGyzAiCQKXGNhqMFfQoKONXbI82mZkVihX5jmNE=" crossorigin="anonymous" media="screen" />
-  
-
-
-
-<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-
-
-
-
-
-</head>
-
-
-
-
-
-
-<body class="preload-transitions colorscheme-auto">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    
-    <a class="navigation-title" href="https://grovercoder.github.io/">
-      GroverCoder
-    </a>
-    
-    
-      <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle">
-        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
-      </label>
-      <ul class="navigation-list">
-        
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/posts/">Blog</a>
-            </li>
-          
-        
-        
-      </ul>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
-      
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://grovercoder.github.io/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/">
-              How to get your IP from a BASH script
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
-              <time datetime="2021-05-25T13:40:01-06:00">
-                May 25, 2021
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              4-minute read
-            </span>
-          </div>
-          
-          
-          <div class="tags">
-  <i class="fa-solid fa-tag" aria-hidden="true"></i>
-    <span class="tag">
-      <a href="/tags/linux/">Linux</a>
-    </span>
-      <span class="separator">•</span>
-    <span class="tag">
-      <a href="/tags/bash/">Bash</a>
-    </span>
-      <span class="separator">•</span>
-    <span class="tag">
-      <a href="/tags/command-line/">Command Line</a>
-    </span></div>
-
-        </div>
-      </header>
-
-      
-
-      <div class="post-content">
-        
-        <h2 id="for-when-you-have-many-network-interfaces">
-  For when you have many network interfaces
-  <a class="heading-link" href="#for-when-you-have-many-network-interfaces">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<p><img src="https://cdn-images-1.medium.com/max/800/0*Jj6Ao6sraU2UJfiG" alt=""></p>
-<p>Photo by <a href="https://unsplash.com/@isodme?utm_source=medium&amp;utm_medium=referral"  class="external-link" target="_blank" rel="noopener">Jonathan</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral"  class="external-link" target="_blank" rel="noopener">Unsplash</a></p>
-<h2 id="the-shortversion">
-  The short version:
-  <a class="heading-link" href="#the-shortversion">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ip addr show <span style="color:#66d9ef">$(</span>ip route | awk <span style="color:#e6db74">&#39;/default/ { print $5 }&#39;</span><span style="color:#66d9ef">)</span> | grep <span style="color:#e6db74">&#34;inet&#34;</span> | head -n <span style="color:#ae81ff">1</span> | awk <span style="color:#e6db74">&#39;/inet/ {print $2}&#39;</span> | cut -d<span style="color:#e6db74">&#39;/&#39;</span> -f1
-</span></span></code></pre></div><ul>
-<li>We use <code>ip route</code> and <code>awk</code> to determine the name of our default network interface</li>
-<li>We use <code>ip addr</code> to get the IP details for that interface</li>
-<li>We grep for only the line(s) that indicate “inet”</li>
-<li>We then make sure we are only dealing with one line via the <code>head</code> command. There should only be a single “inet” line to begin with, but it is possible there could be more than one.</li>
-<li>We use <code>awk</code> to extract the IP address</li>
-<li>We use <code>cut</code> to strip off the subnet information if it is present</li>
-</ul>
-<p>This is a little verbose, but works very well for my use case. This can be done in a more concise manner with a little effort. Adopt this, or use another technique to suit your needs.</p>
-<h2 id="my-usecase">
-  My Use Case
-  <a class="heading-link" href="#my-usecase">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<blockquote>
-<p>Note, I’m going to gloss over some details as being irrelevant to the conversation. The goal here is to focus on finding the IP address of the host workstation from a command line script (Bash in this case), when more than one network interface may be present and hard coding an interface name is not the right answer.</p>
-</blockquote>
-<p>I had a docker container running on my Linux workstation that provided a web service via an exposed port. I could just navigate to <code>http://localhost:51234</code> to access that service. The interesting part occurred when I needed a different unrelated docker container to access that same service. In this case I did not have a common Docker network configuration I could lean on. I needed to just do a typical HTTP request, but “localhost” from INSIDE that container meant the container — not my host computer. The fix here is to just use the IP address of the host, BUT… The script I was creating is expected to run on multiple developer’s boxes each with their own local version of the web service, and their own IP addresses. So I couldn’t just hard code my IP. Asking the dev’s to edit a config was not convenient either (short lease times on the DHCP address, different skills of the devs, etc.). So I needed a way to determine the IP address of the host computer from the Bash script that was launching the processes.</p>
-<p>So I hacked it.</p>
-<p>I started with the typical <code>ip addr</code>. This lists the IPv4 and IPv6 addresses for all the network interfaces. If I assume my default interface is <code>eth0</code> I could narrow this down with</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ip addr show eth0
-</span></span></code></pre></div><p>But, there is nothing special about the list that indicates which interface is the “default”. The default is an “inferred” piece of knowledge based on how we setup the computer, what hardware was available, etc. So I can’t use <code>eth0</code> or <code>wlan0</code>, because there is no guarantee the “default” interface would be named the same on all the host computers.</p>
-<p>The answer for me was to also make use of <code>ip route</code>. This lists the routing tables for the workstation. The important part there is the line that indicates “<strong>default via</strong>”. This is our default interface. Combining that we can then do</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ip route | awk <span style="color:#e6db74">&#39;/default/ {print $5}&#39;</span>
-</span></span></code></pre></div><p>This gives us the NAME of the default interface. The <code>ip route</code> gives us our list of routing entries, and the <code>awk</code> command finds the one with the phrase “default”, then returns the 5th field from that line (space delimited). Interestingly, if you need the IP address of your default gateway, you can just change that to <code>$3</code> instead of <code>$5</code>.</p>
-<p>Combining that then gives us</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ip addr show <span style="color:#66d9ef">$(</span>ip route | awk <span style="color:#e6db74">&#39;/default/ {print $5}&#39;</span><span style="color:#66d9ef">)</span>
-</span></span></code></pre></div><p>and this returns the IP information for our default device. To trim that output down even more we can use <code>awk</code>, <code>grep</code>, <code>head</code>, and <code>cut</code> to isolate the “inet” line(s). and extract ONLY the desired IP address. I’ve described what each piece does up above, under the “short version”.</p>
-<p>I use it in my script like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MYIP<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>ip addr show <span style="color:#66d9ef">$(</span>ip route | awk <span style="color:#e6db74">&#39;/default/ { print $5 }&#39;</span><span style="color:#66d9ef">)</span> | grep <span style="color:#e6db74">&#34;inet&#34;</span> | head -n <span style="color:#ae81ff">1</span> | awk <span style="color:#e6db74">&#39;/inet/ {print $2}&#39;</span> | cut -d<span style="color:#e6db74">&#39;/&#39;</span> -f1<span style="color:#66d9ef">)</span>
-</span></span></code></pre></div><p>If I then “echo $MYIP” I get something like “192.168.1.55”. And this is the value I can then pass into my secondary Docker container (I used the <code>--env</code> flag with the <code>docker run</code> command to do so). My running container can then access “http://192.168.1.55:51234” and get the results it expected, assuming everything else is running properly.</p>
-<p>There are tons of answers on the Internet that show how to get your IP address. In my case, most of those were too simplistic or still relied on some inferred knowledge.</p>
-<p>Thanks to the gang on the #debian IRC channel for their help in getting to this solution!</p>
-
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-        
-        
-        
-        
-      </footer>
-    </article>
-
-    
-  </section>
-
-    </div>
-
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-      2020 -
-    
-    2024
-     GroverCoder 
-    
-    
-    
-  </section>
-</footer>
-
-  </main>
-
-  
-
-  
-  
-  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</body>
-
-</html>
+This is a little verbose, but works very well for my use case. This can be done in a more concise manner with a little effort. Adopt this, or use another technique to suit your needs."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="How to get your IP from a BASH script"><meta name=twitter:description content=" For when you have many network interfaces Link to heading Photo by Jonathan on Unsplash
+The short version: Link to heading ip addr show $(ip route | awk '/default/ { print $5 }') | grep &#34;inet&#34; | head -n 1 | awk '/inet/ {print $2}' | cut -d'/' -f1 We use ip route and awk to determine the name of our default network interface We use ip addr to get the IP details for that interface We grep for only the line(s) that indicate “inet” We then make sure we are only dealing with one line via the head command. There should only be a single “inet” line to begin with, but it is possible there could be more than one. We use awk to extract the IP address We use cut to strip off the subnet information if it is present This is a little verbose, but works very well for my use case. This can be done in a more concise manner with a little effort. Adopt this, or use another technique to suit your needs."><meta property="og:url" content="https://grovercoder.github.io/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/"><meta property="og:site_name" content="GroverCoder"><meta property="og:title" content="How to get your IP from a BASH script"><meta property="og:description" content=" For when you have many network interfaces Link to heading Photo by Jonathan on Unsplash
+The short version: Link to heading ip addr show $(ip route | awk '/default/ { print $5 }') | grep &#34;inet&#34; | head -n 1 | awk '/inet/ {print $2}' | cut -d'/' -f1 We use ip route and awk to determine the name of our default network interface We use ip addr to get the IP details for that interface We grep for only the line(s) that indicate “inet” We then make sure we are only dealing with one line via the head command. There should only be a single “inet” line to begin with, but it is possible there could be more than one. We use awk to extract the IP address We use cut to strip off the subnet information if it is present This is a little verbose, but works very well for my use case. This can be done in a more concise manner with a little effort. Adopt this, or use another technique to suit your needs."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-05-25T13:40:01-06:00"><meta property="article:modified_time" content="2021-05-25T13:40:01-06:00"><meta property="article:tag" content="Linux"><meta property="article:tag" content="Bash"><meta property="article:tag" content="Command Line"><link rel=canonical href=https://grovercoder.github.io/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/><script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ3RZ1R114"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-GQ3RZ1R114")</script><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.b04b3b293fda1eeaad08ca369d0beb7106ec93f453ce9a8a3b787a21b76e7df6.css integrity="sha256-sEs7KT/aHuqtCMo2nQvrcQbsk/RTzpqKO3h6IbduffY=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.38bd245a7922e87128d12aa12859e32c3455413c05485c304123a6af4db69763.css integrity="sha256-OL0kWnki6HEo0SqhKFnjLDRVQTwFSFwwQSOmr022l2M=" crossorigin=anonymous media=screen><link rel=stylesheet href=/scss/projects.min.9b320a6c6cb302209029718d86a3057d0a0a38d5db23cda6664562857e6398d1.css integrity="sha256-mzIKbGyzAiCQKXGNhqMFfQoKONXbI82mZkVihX5jmNE=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/img/favicon.svg sizes=any><link rel=icon type=image/png href=/img/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/img/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://grovercoder.github.io/>GroverCoder
+</a><input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://grovercoder.github.io/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/>How to get your IP from a BASH script</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
+<time datetime=2021-05-25T13:40:01-06:00>May 25, 2021
+</time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
+4-minute read</span></div><div class=tags><i class="fa-solid fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/linux/>Linux</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/bash/>Bash</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/command-line/>Command Line</a></span></div></div></header><div class=post-content><h2 id=for-when-you-have-many-network-interfaces>For when you have many network interfaces
+<a class=heading-link href=#for-when-you-have-many-network-interfaces><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p><img src=https://cdn-images-1.medium.com/max/800/0*Jj6Ao6sraU2UJfiG alt></p><p>Photo by <a href="https://unsplash.com/@isodme?utm_source=medium&amp;utm_medium=referral" class=external-link target=_blank rel=noopener>Jonathan</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" class=external-link target=_blank rel=noopener>Unsplash</a></p><h2 id=the-shortversion>The short version:
+<a class=heading-link href=#the-shortversion><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>ip addr show <span style=color:#66d9ef>$(</span>ip route | awk <span style=color:#e6db74>&#39;/default/ { print $5 }&#39;</span><span style=color:#66d9ef>)</span> | grep <span style=color:#e6db74>&#34;inet&#34;</span> | head -n <span style=color:#ae81ff>1</span> | awk <span style=color:#e6db74>&#39;/inet/ {print $2}&#39;</span> | cut -d<span style=color:#e6db74>&#39;/&#39;</span> -f1
+</span></span></code></pre></div><ul><li>We use <code>ip route</code> and <code>awk</code> to determine the name of our default network interface</li><li>We use <code>ip addr</code> to get the IP details for that interface</li><li>We grep for only the line(s) that indicate “inet”</li><li>We then make sure we are only dealing with one line via the <code>head</code> command. There should only be a single “inet” line to begin with, but it is possible there could be more than one.</li><li>We use <code>awk</code> to extract the IP address</li><li>We use <code>cut</code> to strip off the subnet information if it is present</li></ul><p>This is a little verbose, but works very well for my use case. This can be done in a more concise manner with a little effort. Adopt this, or use another technique to suit your needs.</p><h2 id=my-usecase>My Use Case
+<a class=heading-link href=#my-usecase><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><blockquote><p>Note, I’m going to gloss over some details as being irrelevant to the conversation. The goal here is to focus on finding the IP address of the host workstation from a command line script (Bash in this case), when more than one network interface may be present and hard coding an interface name is not the right answer.</p></blockquote><p>I had a docker container running on my Linux workstation that provided a web service via an exposed port. I could just navigate to <code>http://localhost:51234</code> to access that service. The interesting part occurred when I needed a different unrelated docker container to access that same service. In this case I did not have a common Docker network configuration I could lean on. I needed to just do a typical HTTP request, but “localhost” from INSIDE that container meant the container — not my host computer. The fix here is to just use the IP address of the host, BUT… The script I was creating is expected to run on multiple developer’s boxes each with their own local version of the web service, and their own IP addresses. So I couldn’t just hard code my IP. Asking the dev’s to edit a config was not convenient either (short lease times on the DHCP address, different skills of the devs, etc.). So I needed a way to determine the IP address of the host computer from the Bash script that was launching the processes.</p><p>So I hacked it.</p><p>I started with the typical <code>ip addr</code>. This lists the IPv4 and IPv6 addresses for all the network interfaces. If I assume my default interface is <code>eth0</code> I could narrow this down with</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>ip addr show eth0
+</span></span></code></pre></div><p>But, there is nothing special about the list that indicates which interface is the “default”. The default is an “inferred” piece of knowledge based on how we setup the computer, what hardware was available, etc. So I can’t use <code>eth0</code> or <code>wlan0</code>, because there is no guarantee the “default” interface would be named the same on all the host computers.</p><p>The answer for me was to also make use of <code>ip route</code>. This lists the routing tables for the workstation. The important part there is the line that indicates “<strong>default via</strong>”. This is our default interface. Combining that we can then do</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>ip route | awk <span style=color:#e6db74>&#39;/default/ {print $5}&#39;</span>
+</span></span></code></pre></div><p>This gives us the NAME of the default interface. The <code>ip route</code> gives us our list of routing entries, and the <code>awk</code> command finds the one with the phrase “default”, then returns the 5th field from that line (space delimited). Interestingly, if you need the IP address of your default gateway, you can just change that to <code>$3</code> instead of <code>$5</code>.</p><p>Combining that then gives us</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>ip addr show <span style=color:#66d9ef>$(</span>ip route | awk <span style=color:#e6db74>&#39;/default/ {print $5}&#39;</span><span style=color:#66d9ef>)</span>
+</span></span></code></pre></div><p>and this returns the IP information for our default device. To trim that output down even more we can use <code>awk</code>, <code>grep</code>, <code>head</code>, and <code>cut</code> to isolate the “inet” line(s). and extract ONLY the desired IP address. I’ve described what each piece does up above, under the “short version”.</p><p>I use it in my script like this:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>MYIP<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>ip addr show <span style=color:#66d9ef>$(</span>ip route | awk <span style=color:#e6db74>&#39;/default/ { print $5 }&#39;</span><span style=color:#66d9ef>)</span> | grep <span style=color:#e6db74>&#34;inet&#34;</span> | head -n <span style=color:#ae81ff>1</span> | awk <span style=color:#e6db74>&#39;/inet/ {print $2}&#39;</span> | cut -d<span style=color:#e6db74>&#39;/&#39;</span> -f1<span style=color:#66d9ef>)</span>
+</span></span></code></pre></div><p>If I then “echo $MYIP” I get something like “192.168.1.55”. And this is the value I can then pass into my secondary Docker container (I used the <code>--env</code> flag with the <code>docker run</code> command to do so). My running container can then access “http://192.168.1.55:51234” and get the results it expected, assuming everything else is running properly.</p><p>There are tons of answers on the Internet that show how to get your IP address. In my case, most of those were too simplistic or still relied on some inferred knowledge.</p><p>Thanks to the gang on the #debian IRC channel for their help in getting to this solution!</p></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+2020 -
+2024
+GroverCoder</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script></body></html>

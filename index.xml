@@ -1,89 +1,110 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>GroverCoder</title>
-    <link>https://grovercoder.github.io/</link>
-    <description>Recent content on GroverCoder</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 05 Dec 2024 09:54:01 -0600</lastBuildDate>
-    <atom:link href="https://grovercoder.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>The Struggle is Real: Navigating the Gap between Cutting-Edge Tech and Mainstream Adoption</title>
-      <link>https://grovercoder.github.io/posts/2024-12-05-the-adoption-curve/</link>
-      <pubDate>Thu, 05 Dec 2024 09:54:01 -0600</pubDate>
-      <guid>https://grovercoder.github.io/posts/2024-12-05-the-adoption-curve/</guid>
-      <description>&lt;h1 id=&#34;the-struggle-is-real-navigating-the-gap-between-cutting-edge-tech-and-mainstream-adoption&#34;&gt;&#xA;  The Struggle is Real: Navigating the Gap between Cutting-Edge Tech and Mainstream Adoption&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#the-struggle-is-real-navigating-the-gap-between-cutting-edge-tech-and-mainstream-adoption&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Do you ever feel like your struggle to stay current with technology is mis-aligned with what businesses want?&lt;/p&gt;&#xA;&lt;p&gt;Your assessment is valid, and you&amp;rsquo;re not alone in feeling this way. The software development landscape is constantly evolving, and it&amp;rsquo;s challenging to keep up with the latest advancements. The phenomenon you are experiencing is often referred to as the &amp;ldquo;adoption curve&amp;rdquo; or &amp;ldquo;innovation diffusion.&amp;rdquo;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Using Ollama locally with Python</title>
-      <link>https://grovercoder.github.io/posts/2024108-local-ollama-python/</link>
-      <pubDate>Wed, 09 Oct 2024 16:01:10 -0600</pubDate>
-      <guid>https://grovercoder.github.io/posts/2024108-local-ollama-python/</guid>
-      <description>&lt;h2 id=&#34;overview&#34;&gt;&#xA;  Overview&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#overview&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;AI and LLMs are all the rage these days.  Incorporating them into your code can open up a number of possibilities.  Using the online resources / APIs have some issues though:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;your code may need to survive even if the online resource changes or is no longer available&lt;/li&gt;&#xA;&lt;li&gt;your code may be rate limited or blocked if thresholds are exceeded&lt;/li&gt;&#xA;&lt;li&gt;the token cost may accummulate much quicker than you were expecting.  In practice that $0.0012 process is fine, once you go live you might find though that that process is run millions of times in a short time frame. (Perhaps this is a good problem to have?)&lt;/li&gt;&#xA;&lt;li&gt;there may be legal issues passing your data or intellectual property to an upstream provider who is not always clear how that data may be used.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Sometimes running a LLM process locally is a better choice.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>About</title>
-      <link>https://grovercoder.github.io/about/</link>
-      <pubDate>Sun, 01 Sep 2024 13:37:10 -0600</pubDate>
-      <guid>https://grovercoder.github.io/about/</guid>
-      <description>&lt;h2 id=&#34;background&#34;&gt;&#xA;  Background&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#background&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Nestled just north of Calgary, Alberta, Canada, I have the privilege of seeing both the prairies and the mountains almost daily. This unique location allows me to appreciate the tranquility of nature while still being close enough to dive into the vibrant life of the big city.&lt;/p&gt;&#xA;&lt;p&gt;My passion for creating spans from traditional woodworking to utilizing modern laser engravers, cutters, and 3D printers. I find great satisfaction in bringing ideas to life, especially through technology. Whether it&amp;rsquo;s coding software for business solutions or crafting physical items, I revel in the process of making things work. Home improvement projects often catch my interest, and I occasionally dabble in art. Additionally, I enjoy playing the guitar, finding joy in the creative process, even if my guitar skills are more enthusiastic than expert.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Generate GPG key without passphrase</title>
-      <link>https://grovercoder.github.io/posts/2021-06-03_generate-gpg-key-without-passphrase/</link>
-      <pubDate>Thu, 03 Jun 2021 13:40:01 -0600</pubDate>
-      <guid>https://grovercoder.github.io/posts/2021-06-03_generate-gpg-key-without-passphrase/</guid>
-      <description>&lt;h2 id=&#34;remove-prompts-from-your-command-line-scripts&#34;&gt;&#xA;  Remove prompts from your command line scripts&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#remove-prompts-from-your-command-line-scripts&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn-images-1.medium.com/max/800/0*Ts3C5VxBpVhfYDtu&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@bergerteam?utm_source=medium&amp;amp;utm_medium=referral&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Florian Berger&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;I had a recent task to automate building a custom Debian image, using some custom software wrapped up as &lt;strong&gt;*.deb&lt;/strong&gt; packages. These packages are stored in an local APT repository via &lt;a href=&#34;https://wikitech.wikimedia.org/wiki/Reprepro&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;reprepro&lt;/a&gt; (also created and populated by our script). The problem I kept running into was my script would prompt for the GPG key’s passphrase. This breaks the automation efforts we were striving for.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>How to get your IP from a BASH script</title>
-      <link>https://grovercoder.github.io/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/</link>
-      <pubDate>Tue, 25 May 2021 13:40:01 -0600</pubDate>
-      <guid>https://grovercoder.github.io/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/</guid>
-      <description>&lt;h2 id=&#34;for-when-you-have-many-network-interfaces&#34;&gt;&#xA;  For when you have many network interfaces&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#for-when-you-have-many-network-interfaces&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn-images-1.medium.com/max/800/0*Jj6Ao6sraU2UJfiG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@isodme?utm_source=medium&amp;amp;utm_medium=referral&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Jonathan&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-shortversion&#34;&gt;&#xA;  The short version:&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#the-shortversion&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ip addr show &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;ip route | awk &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/default/ { print $5 }&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; | grep &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;inet&amp;#34;&lt;/span&gt; | head -n &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; | awk &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/inet/ {print $2}&amp;#39;&lt;/span&gt; | cut -d&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt; -f1&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;&#xA;&lt;li&gt;We use &lt;code&gt;ip route&lt;/code&gt; and &lt;code&gt;awk&lt;/code&gt; to determine the name of our default network interface&lt;/li&gt;&#xA;&lt;li&gt;We use &lt;code&gt;ip addr&lt;/code&gt; to get the IP details for that interface&lt;/li&gt;&#xA;&lt;li&gt;We grep for only the line(s) that indicate “inet”&lt;/li&gt;&#xA;&lt;li&gt;We then make sure we are only dealing with one line via the &lt;code&gt;head&lt;/code&gt; command. There should only be a single “inet” line to begin with, but it is possible there could be more than one.&lt;/li&gt;&#xA;&lt;li&gt;We use &lt;code&gt;awk&lt;/code&gt; to extract the IP address&lt;/li&gt;&#xA;&lt;li&gt;We use &lt;code&gt;cut&lt;/code&gt; to strip off the subnet information if it is present&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This is a little verbose, but works very well for my use case. This can be done in a more concise manner with a little effort. Adopt this, or use another technique to suit your needs.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>MX Linux and Blender Crash</title>
-      <link>https://grovercoder.github.io/posts/2021-02-17_mx-linux-and-blender-crash/</link>
-      <pubDate>Wed, 17 Feb 2021 13:40:01 -0600</pubDate>
-      <guid>https://grovercoder.github.io/posts/2021-02-17_mx-linux-and-blender-crash/</guid>
-      <description>&lt;h2 id=&#34;one-possiblesolution&#34;&gt;&#xA;  One possible solution&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#one-possiblesolution&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn-images-1.medium.com/max/800/0*3Sdc8aVzKKwFtGQr&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@neonbrand?utm_source=medium&amp;amp;utm_medium=referral&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;NeONBRAND&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;I recently updated my Intel NUC (model &lt;a href=&#34;https://ark.intel.com/content/www/us/en/ark/products/89187/intel-nuc-kit-nuc6i7kyk.html&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;NUC6i7KYK&lt;/a&gt;) to run &lt;a href=&#34;https://mxlinux.org/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MX Linux&lt;/a&gt; instead of the original Debian install I had on the box. Everything is running great out of the box. Except &lt;a href=&#34;https://www.blender.org/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Blender&lt;/a&gt;. Finding out why took a bit of sleuthing.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Short form — firing up Blender with the &lt;code&gt;INTEL_DEBUG=reemit&lt;/code&gt; environment variable *may* clean up the crashes.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Every other box/laptop I have is running MX Linux already, and only my desktop — the Intel NUC — was still running Debian. I had just picked up a 1TB M.2 drive for that box to replace the two smaller drives (120GB and 250GB). So I was doing a re-install anyway — may as well match up everything to the same distro then.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>How I use Node.js professionally</title>
-      <link>https://grovercoder.github.io/posts/2020-10-30_how-i-use-node-js-professionally/</link>
-      <pubDate>Fri, 30 Oct 2020 13:40:01 -0600</pubDate>
-      <guid>https://grovercoder.github.io/posts/2020-10-30_how-i-use-node-js-professionally/</guid>
-      <description>&lt;h2 id=&#34;it-slices-it-dices-but-wait-there-is-more&#34;&gt;&#xA;  It slices! It dices! But wait! There is more!&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#it-slices-it-dices-but-wait-there-is-more&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn-images-1.medium.com/max/800/0*eD7mEoro0V_soy9q&#34; alt=&#34;From Unsplash- Capar Camille&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Use the right tool for the job. But it is awesome when we find a tool that can be used effectively in many different ways.&lt;/p&gt;&#xA;&lt;p&gt;I use Node to develop solutions for my customers. Those solutions may just be an API, or integrating with a front end framework over a REST interface. But those solutions sometimes involve setting up WebSocket servers, command line scripts, one-off data manipulation tasks,creating or accessing job queues, or even a comprehensive package that does everything in a modular way.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Magento E-Commerce / ERP Integration</title>
-      <link>https://grovercoder.github.io/projects/test2/</link>
-      <pubDate>Sun, 11 Oct 2020 17:21:00 -0600</pubDate>
-      <guid>https://grovercoder.github.io/projects/test2/</guid>
-      <description>&lt;h2 id=&#34;description&#34;&gt;&#xA;  Description&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#description&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;The company had a number of physical stores and warehouses.  An E-Commerce solution was needed to integrate with the inventory and order fulfillment system the physical locations used.&lt;/p&gt;&#xA;&lt;p&gt;The organization had 50,000 products, each with their own set of properties that might change periodically.  They also had a very active sales team who would do weekly specials, and various promotions.&lt;/p&gt;&#xA;&lt;p&gt;Ensuring the website would see fast load times, yet have accurate information and provide a seamless user experience was a bit of a challenge to say the least.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Marketing Websites and Applications</title>
-      <link>https://grovercoder.github.io/projects/websites/</link>
-      <pubDate>Sun, 11 Oct 2020 17:21:00 -0600</pubDate>
-      <guid>https://grovercoder.github.io/projects/websites/</guid>
-      <description>&lt;h2 id=&#34;description&#34;&gt;&#xA;  Description&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#description&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Over time I have worked on many business websites and applications covering everything from brochure type sites to interactive marketing campaigns. The customers ranged from small organization up to and including fortune 500 companies with common name brand items. My solutions covered the all aspects of getting the project running - architecting the solution, creating the infrastructure, full stack development database design, and deployment systems.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Data Access Models with Node</title>
-      <link>https://grovercoder.github.io/posts/2020-08-09_data-access-models-with-node/</link>
-      <pubDate>Sun, 09 Aug 2020 13:40:01 -0600</pubDate>
-      <guid>https://grovercoder.github.io/posts/2020-08-09_data-access-models-with-node/</guid>
-      <description>&lt;p&gt;Instead of writing CRUD methods for every table we need to access, we can create a module that provides the data and can be extended as…&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn-images-1.medium.com/max/800/0*10xBxuQ2K3uH7E0O&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@mvdheuvel?utm_source=medium&amp;amp;utm_medium=referral&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Maarten van den Heuvel&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Instead of writing CRUD methods for every table we need to access, we can create a module that provides the data and can be extended as needed. This article goes through that process and provides a sample application summarising the steps.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Node.JS and Relational Databases</title>
-      <link>https://grovercoder.github.io/posts/2020-08-08_node-js-and-relational-databases/</link>
-      <pubDate>Sat, 08 Aug 2020 13:40:01 -0600</pubDate>
-      <guid>https://grovercoder.github.io/posts/2020-08-08_node-js-and-relational-databases/</guid>
-      <description>&lt;p&gt;In this article we do a quick WHY you might need access to relational databases, and then show a brief HOW you can do it.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn-images-1.medium.com/max/800/0*af_kLxa3TrrdhiFS&#34; alt=&#34;Unsplash Image - Markus Spiske&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Data storage is an important part of any computer application. Collected data needs to be stored for later analysis, or data needs to be retrieved to generate desired outputs. There are many ways of storing memory — file storage (including text and/or binary options), relational databases, &lt;a href=&#34;https://en.wikipedia.org/wiki/NoSQL&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;NoSQL&lt;/a&gt; systems, and I’m sure I’ve missed a few.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GroverCoder</title><link>https://grovercoder.github.io/</link><description>Recent content on GroverCoder</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 05 Dec 2024 09:54:01 -0600</lastBuildDate><atom:link href="https://grovercoder.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>The Struggle is Real: Navigating the Gap between Cutting-Edge Tech and Mainstream Adoption</title><link>https://grovercoder.github.io/posts/2024-12-05-the-adoption-curve/</link><pubDate>Thu, 05 Dec 2024 09:54:01 -0600</pubDate><guid>https://grovercoder.github.io/posts/2024-12-05-the-adoption-curve/</guid><description>&lt;h1 id="the-struggle-is-real-navigating-the-gap-between-cutting-edge-tech-and-mainstream-adoption">
+ The Struggle is Real: Navigating the Gap between Cutting-Edge Tech and Mainstream Adoption
+ &lt;a class="heading-link" href="#the-struggle-is-real-navigating-the-gap-between-cutting-edge-tech-and-mainstream-adoption">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h1>
+&lt;p>Do you ever feel like your struggle to stay current with technology is mis-aligned with what businesses want?&lt;/p>
+&lt;p>Your assessment is valid, and you&amp;rsquo;re not alone in feeling this way. The software development landscape is constantly evolving, and it&amp;rsquo;s challenging to keep up with the latest advancements. The phenomenon you are experiencing is often referred to as the &amp;ldquo;adoption curve&amp;rdquo; or &amp;ldquo;innovation diffusion.&amp;rdquo;&lt;/p></description></item><item><title>Using Ollama locally with Python</title><link>https://grovercoder.github.io/posts/2024108-local-ollama-python/</link><pubDate>Wed, 09 Oct 2024 16:01:10 -0600</pubDate><guid>https://grovercoder.github.io/posts/2024108-local-ollama-python/</guid><description>&lt;h2 id="overview">
+ Overview
+ &lt;a class="heading-link" href="#overview">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>AI and LLMs are all the rage these days. Incorporating them into your code can open up a number of possibilities. Using the online resources / APIs have some issues though:&lt;/p>
+&lt;ul>
+&lt;li>your code may need to survive even if the online resource changes or is no longer available&lt;/li>
+&lt;li>your code may be rate limited or blocked if thresholds are exceeded&lt;/li>
+&lt;li>the token cost may accummulate much quicker than you were expecting. In practice that $0.0012 process is fine, once you go live you might find though that that process is run millions of times in a short time frame. (Perhaps this is a good problem to have?)&lt;/li>
+&lt;li>there may be legal issues passing your data or intellectual property to an upstream provider who is not always clear how that data may be used.&lt;/li>
+&lt;/ul>
+&lt;p>Sometimes running a LLM process locally is a better choice.&lt;/p></description></item><item><title>About</title><link>https://grovercoder.github.io/about/</link><pubDate>Sun, 01 Sep 2024 13:37:10 -0600</pubDate><guid>https://grovercoder.github.io/about/</guid><description>&lt;h2 id="background">
+ Background
+ &lt;a class="heading-link" href="#background">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>Nestled just north of Calgary, Alberta, Canada, I have the privilege of seeing both the prairies and the mountains almost daily. This unique location allows me to appreciate the tranquility of nature while still being close enough to dive into the vibrant life of the big city.&lt;/p>
+&lt;p>My passion for creating spans from traditional woodworking to utilizing modern laser engravers, cutters, and 3D printers. I find great satisfaction in bringing ideas to life, especially through technology. Whether it&amp;rsquo;s coding software for business solutions or crafting physical items, I revel in the process of making things work. Home improvement projects often catch my interest, and I occasionally dabble in art. Additionally, I enjoy playing the guitar, finding joy in the creative process, even if my guitar skills are more enthusiastic than expert.&lt;/p></description></item><item><title>Generate GPG key without passphrase</title><link>https://grovercoder.github.io/posts/2021-06-03_generate-gpg-key-without-passphrase/</link><pubDate>Thu, 03 Jun 2021 13:40:01 -0600</pubDate><guid>https://grovercoder.github.io/posts/2021-06-03_generate-gpg-key-without-passphrase/</guid><description>&lt;h2 id="remove-prompts-from-your-command-line-scripts">
+ Remove prompts from your command line scripts
+ &lt;a class="heading-link" href="#remove-prompts-from-your-command-line-scripts">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;hr>
+&lt;p>&lt;img src="https://cdn-images-1.medium.com/max/800/0*Ts3C5VxBpVhfYDtu" alt="">&lt;/p>
+&lt;p>Photo by &lt;a href="https://unsplash.com/@bergerteam?utm_source=medium&amp;amp;utm_medium=referral" class="external-link" target="_blank" rel="noopener">Florian Berger&lt;/a> on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral" class="external-link" target="_blank" rel="noopener">Unsplash&lt;/a>&lt;/p>
+&lt;p>I had a recent task to automate building a custom Debian image, using some custom software wrapped up as &lt;strong>*.deb&lt;/strong> packages. These packages are stored in an local APT repository via &lt;a href="https://wikitech.wikimedia.org/wiki/Reprepro" class="external-link" target="_blank" rel="noopener">reprepro&lt;/a> (also created and populated by our script). The problem I kept running into was my script would prompt for the GPG key’s passphrase. This breaks the automation efforts we were striving for.&lt;/p></description></item><item><title>How to get your IP from a BASH script</title><link>https://grovercoder.github.io/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/</link><pubDate>Tue, 25 May 2021 13:40:01 -0600</pubDate><guid>https://grovercoder.github.io/posts/2021-05-25_how-to-get-your-ip-from-a-bash-script/</guid><description>&lt;h2 id="for-when-you-have-many-network-interfaces">
+ For when you have many network interfaces
+ &lt;a class="heading-link" href="#for-when-you-have-many-network-interfaces">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://cdn-images-1.medium.com/max/800/0*Jj6Ao6sraU2UJfiG" alt="">&lt;/p>
+&lt;p>Photo by &lt;a href="https://unsplash.com/@isodme?utm_source=medium&amp;amp;utm_medium=referral" class="external-link" target="_blank" rel="noopener">Jonathan&lt;/a> on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral" class="external-link" target="_blank" rel="noopener">Unsplash&lt;/a>&lt;/p>
+&lt;h2 id="the-shortversion">
+ The short version:
+ &lt;a class="heading-link" href="#the-shortversion">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ip addr show &lt;span style="color:#66d9ef">$(&lt;/span>ip route | awk &lt;span style="color:#e6db74">&amp;#39;/default/ { print $5 }&amp;#39;&lt;/span>&lt;span style="color:#66d9ef">)&lt;/span> | grep &lt;span style="color:#e6db74">&amp;#34;inet&amp;#34;&lt;/span> | head -n &lt;span style="color:#ae81ff">1&lt;/span> | awk &lt;span style="color:#e6db74">&amp;#39;/inet/ {print $2}&amp;#39;&lt;/span> | cut -d&lt;span style="color:#e6db74">&amp;#39;/&amp;#39;&lt;/span> -f1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>We use &lt;code>ip route&lt;/code> and &lt;code>awk&lt;/code> to determine the name of our default network interface&lt;/li>
+&lt;li>We use &lt;code>ip addr&lt;/code> to get the IP details for that interface&lt;/li>
+&lt;li>We grep for only the line(s) that indicate “inet”&lt;/li>
+&lt;li>We then make sure we are only dealing with one line via the &lt;code>head&lt;/code> command. There should only be a single “inet” line to begin with, but it is possible there could be more than one.&lt;/li>
+&lt;li>We use &lt;code>awk&lt;/code> to extract the IP address&lt;/li>
+&lt;li>We use &lt;code>cut&lt;/code> to strip off the subnet information if it is present&lt;/li>
+&lt;/ul>
+&lt;p>This is a little verbose, but works very well for my use case. This can be done in a more concise manner with a little effort. Adopt this, or use another technique to suit your needs.&lt;/p></description></item><item><title>MX Linux and Blender Crash</title><link>https://grovercoder.github.io/posts/2021-02-17_mx-linux-and-blender-crash/</link><pubDate>Wed, 17 Feb 2021 13:40:01 -0600</pubDate><guid>https://grovercoder.github.io/posts/2021-02-17_mx-linux-and-blender-crash/</guid><description>&lt;h2 id="one-possiblesolution">
+ One possible solution
+ &lt;a class="heading-link" href="#one-possiblesolution">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://cdn-images-1.medium.com/max/800/0*3Sdc8aVzKKwFtGQr" alt="">&lt;/p>
+&lt;p>Photo by &lt;a href="https://unsplash.com/@neonbrand?utm_source=medium&amp;amp;utm_medium=referral" class="external-link" target="_blank" rel="noopener">NeONBRAND&lt;/a> on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral" class="external-link" target="_blank" rel="noopener">Unsplash&lt;/a>&lt;/p>
+&lt;p>I recently updated my Intel NUC (model &lt;a href="https://ark.intel.com/content/www/us/en/ark/products/89187/intel-nuc-kit-nuc6i7kyk.html" class="external-link" target="_blank" rel="noopener">NUC6i7KYK&lt;/a>) to run &lt;a href="https://mxlinux.org/" class="external-link" target="_blank" rel="noopener">MX Linux&lt;/a> instead of the original Debian install I had on the box. Everything is running great out of the box. Except &lt;a href="https://www.blender.org/" class="external-link" target="_blank" rel="noopener">Blender&lt;/a>. Finding out why took a bit of sleuthing.&lt;/p>
+&lt;blockquote>
+&lt;p>Short form — firing up Blender with the &lt;code>INTEL_DEBUG=reemit&lt;/code> environment variable *may* clean up the crashes.&lt;/p>
+&lt;/blockquote>
+&lt;p>Every other box/laptop I have is running MX Linux already, and only my desktop — the Intel NUC — was still running Debian. I had just picked up a 1TB M.2 drive for that box to replace the two smaller drives (120GB and 250GB). So I was doing a re-install anyway — may as well match up everything to the same distro then.&lt;/p></description></item><item><title>How I use Node.js professionally</title><link>https://grovercoder.github.io/posts/2020-10-30_how-i-use-node-js-professionally/</link><pubDate>Fri, 30 Oct 2020 13:40:01 -0600</pubDate><guid>https://grovercoder.github.io/posts/2020-10-30_how-i-use-node-js-professionally/</guid><description>&lt;h2 id="it-slices-it-dices-but-wait-there-is-more">
+ It slices! It dices! But wait! There is more!
+ &lt;a class="heading-link" href="#it-slices-it-dices-but-wait-there-is-more">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://cdn-images-1.medium.com/max/800/0*eD7mEoro0V_soy9q" alt="From Unsplash- Capar Camille">&lt;/p>
+&lt;p>Use the right tool for the job. But it is awesome when we find a tool that can be used effectively in many different ways.&lt;/p>
+&lt;p>I use Node to develop solutions for my customers. Those solutions may just be an API, or integrating with a front end framework over a REST interface. But those solutions sometimes involve setting up WebSocket servers, command line scripts, one-off data manipulation tasks,creating or accessing job queues, or even a comprehensive package that does everything in a modular way.&lt;/p></description></item><item><title>Magento E-Commerce / ERP Integration</title><link>https://grovercoder.github.io/projects/test2/</link><pubDate>Sun, 11 Oct 2020 17:21:00 -0600</pubDate><guid>https://grovercoder.github.io/projects/test2/</guid><description>&lt;h2 id="description">
+ Description
+ &lt;a class="heading-link" href="#description">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>The company had a number of physical stores and warehouses. An E-Commerce solution was needed to integrate with the inventory and order fulfillment system the physical locations used.&lt;/p>
+&lt;p>The organization had 50,000 products, each with their own set of properties that might change periodically. They also had a very active sales team who would do weekly specials, and various promotions.&lt;/p>
+&lt;p>Ensuring the website would see fast load times, yet have accurate information and provide a seamless user experience was a bit of a challenge to say the least.&lt;/p></description></item><item><title>Marketing Websites and Applications</title><link>https://grovercoder.github.io/projects/websites/</link><pubDate>Sun, 11 Oct 2020 17:21:00 -0600</pubDate><guid>https://grovercoder.github.io/projects/websites/</guid><description>&lt;h2 id="description">
+ Description
+ &lt;a class="heading-link" href="#description">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>Over time I have worked on many business websites and applications covering everything from brochure type sites to interactive marketing campaigns. The customers ranged from small organization up to and including fortune 500 companies with common name brand items. My solutions covered the all aspects of getting the project running - architecting the solution, creating the infrastructure, full stack development database design, and deployment systems.&lt;/p></description></item><item><title>Data Access Models with Node</title><link>https://grovercoder.github.io/posts/2020-08-09_data-access-models-with-node/</link><pubDate>Sun, 09 Aug 2020 13:40:01 -0600</pubDate><guid>https://grovercoder.github.io/posts/2020-08-09_data-access-models-with-node/</guid><description>&lt;p>Instead of writing CRUD methods for every table we need to access, we can create a module that provides the data and can be extended as…&lt;/p>
+&lt;hr>
+&lt;p>&lt;img src="https://cdn-images-1.medium.com/max/800/0*10xBxuQ2K3uH7E0O" alt="">&lt;/p>
+&lt;p>Photo by &lt;a href="https://unsplash.com/@mvdheuvel?utm_source=medium&amp;amp;utm_medium=referral" class="external-link" target="_blank" rel="noopener">Maarten van den Heuvel&lt;/a> on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral" class="external-link" target="_blank" rel="noopener">Unsplash&lt;/a>&lt;/p>
+&lt;p>Instead of writing CRUD methods for every table we need to access, we can create a module that provides the data and can be extended as needed. This article goes through that process and provides a sample application summarising the steps.&lt;/p></description></item><item><title>Node.JS and Relational Databases</title><link>https://grovercoder.github.io/posts/2020-08-08_node-js-and-relational-databases/</link><pubDate>Sat, 08 Aug 2020 13:40:01 -0600</pubDate><guid>https://grovercoder.github.io/posts/2020-08-08_node-js-and-relational-databases/</guid><description>&lt;p>In this article we do a quick WHY you might need access to relational databases, and then show a brief HOW you can do it.&lt;/p>
+&lt;p>&lt;img src="https://cdn-images-1.medium.com/max/800/0*af_kLxa3TrrdhiFS" alt="Unsplash Image - Markus Spiske">&lt;/p>
+&lt;p>Data storage is an important part of any computer application. Collected data needs to be stored for later analysis, or data needs to be retrieved to generate desired outputs. There are many ways of storing memory — file storage (including text and/or binary options), relational databases, &lt;a href="https://en.wikipedia.org/wiki/NoSQL" class="external-link" target="_blank" rel="noopener">NoSQL&lt;/a> systems, and I’m sure I’ve missed a few.&lt;/p></description></item></channel></rss>

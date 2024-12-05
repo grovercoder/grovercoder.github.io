@@ -1,33 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Javascript on GroverCoder</title>
-    <link>https://grovercoder.github.io/tags/javascript/</link>
-    <description>Recent content in Javascript on GroverCoder</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Fri, 30 Oct 2020 13:40:01 -0600</lastBuildDate>
-    <atom:link href="https://grovercoder.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>How I use Node.js professionally</title>
-      <link>https://grovercoder.github.io/posts/2020-10-30_how-i-use-node-js-professionally/</link>
-      <pubDate>Fri, 30 Oct 2020 13:40:01 -0600</pubDate>
-      <guid>https://grovercoder.github.io/posts/2020-10-30_how-i-use-node-js-professionally/</guid>
-      <description>&lt;h2 id=&#34;it-slices-it-dices-but-wait-there-is-more&#34;&gt;&#xA;  It slices! It dices! But wait! There is more!&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#it-slices-it-dices-but-wait-there-is-more&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn-images-1.medium.com/max/800/0*eD7mEoro0V_soy9q&#34; alt=&#34;From Unsplash- Capar Camille&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Use the right tool for the job. But it is awesome when we find a tool that can be used effectively in many different ways.&lt;/p&gt;&#xA;&lt;p&gt;I use Node to develop solutions for my customers. Those solutions may just be an API, or integrating with a front end framework over a REST interface. But those solutions sometimes involve setting up WebSocket servers, command line scripts, one-off data manipulation tasks,creating or accessing job queues, or even a comprehensive package that does everything in a modular way.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Data Access Models with Node</title>
-      <link>https://grovercoder.github.io/posts/2020-08-09_data-access-models-with-node/</link>
-      <pubDate>Sun, 09 Aug 2020 13:40:01 -0600</pubDate>
-      <guid>https://grovercoder.github.io/posts/2020-08-09_data-access-models-with-node/</guid>
-      <description>&lt;p&gt;Instead of writing CRUD methods for every table we need to access, we can create a module that provides the data and can be extended as…&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn-images-1.medium.com/max/800/0*10xBxuQ2K3uH7E0O&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@mvdheuvel?utm_source=medium&amp;amp;utm_medium=referral&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Maarten van den Heuvel&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Instead of writing CRUD methods for every table we need to access, we can create a module that provides the data and can be extended as needed. This article goes through that process and provides a sample application summarising the steps.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Node.JS and Relational Databases</title>
-      <link>https://grovercoder.github.io/posts/2020-08-08_node-js-and-relational-databases/</link>
-      <pubDate>Sat, 08 Aug 2020 13:40:01 -0600</pubDate>
-      <guid>https://grovercoder.github.io/posts/2020-08-08_node-js-and-relational-databases/</guid>
-      <description>&lt;p&gt;In this article we do a quick WHY you might need access to relational databases, and then show a brief HOW you can do it.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn-images-1.medium.com/max/800/0*af_kLxa3TrrdhiFS&#34; alt=&#34;Unsplash Image - Markus Spiske&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Data storage is an important part of any computer application. Collected data needs to be stored for later analysis, or data needs to be retrieved to generate desired outputs. There are many ways of storing memory — file storage (including text and/or binary options), relational databases, &lt;a href=&#34;https://en.wikipedia.org/wiki/NoSQL&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;NoSQL&lt;/a&gt; systems, and I’m sure I’ve missed a few.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Javascript on GroverCoder</title><link>https://grovercoder.github.io/tags/javascript/</link><description>Recent content in Javascript on GroverCoder</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 30 Oct 2020 13:40:01 -0600</lastBuildDate><atom:link href="https://grovercoder.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml"/><item><title>How I use Node.js professionally</title><link>https://grovercoder.github.io/posts/2020-10-30_how-i-use-node-js-professionally/</link><pubDate>Fri, 30 Oct 2020 13:40:01 -0600</pubDate><guid>https://grovercoder.github.io/posts/2020-10-30_how-i-use-node-js-professionally/</guid><description>&lt;h2 id="it-slices-it-dices-but-wait-there-is-more">
+ It slices! It dices! But wait! There is more!
+ &lt;a class="heading-link" href="#it-slices-it-dices-but-wait-there-is-more">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://cdn-images-1.medium.com/max/800/0*eD7mEoro0V_soy9q" alt="From Unsplash- Capar Camille">&lt;/p>
+&lt;p>Use the right tool for the job. But it is awesome when we find a tool that can be used effectively in many different ways.&lt;/p>
+&lt;p>I use Node to develop solutions for my customers. Those solutions may just be an API, or integrating with a front end framework over a REST interface. But those solutions sometimes involve setting up WebSocket servers, command line scripts, one-off data manipulation tasks,creating or accessing job queues, or even a comprehensive package that does everything in a modular way.&lt;/p></description></item><item><title>Data Access Models with Node</title><link>https://grovercoder.github.io/posts/2020-08-09_data-access-models-with-node/</link><pubDate>Sun, 09 Aug 2020 13:40:01 -0600</pubDate><guid>https://grovercoder.github.io/posts/2020-08-09_data-access-models-with-node/</guid><description>&lt;p>Instead of writing CRUD methods for every table we need to access, we can create a module that provides the data and can be extended as…&lt;/p>
+&lt;hr>
+&lt;p>&lt;img src="https://cdn-images-1.medium.com/max/800/0*10xBxuQ2K3uH7E0O" alt="">&lt;/p>
+&lt;p>Photo by &lt;a href="https://unsplash.com/@mvdheuvel?utm_source=medium&amp;amp;utm_medium=referral" class="external-link" target="_blank" rel="noopener">Maarten van den Heuvel&lt;/a> on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral" class="external-link" target="_blank" rel="noopener">Unsplash&lt;/a>&lt;/p>
+&lt;p>Instead of writing CRUD methods for every table we need to access, we can create a module that provides the data and can be extended as needed. This article goes through that process and provides a sample application summarising the steps.&lt;/p></description></item><item><title>Node.JS and Relational Databases</title><link>https://grovercoder.github.io/posts/2020-08-08_node-js-and-relational-databases/</link><pubDate>Sat, 08 Aug 2020 13:40:01 -0600</pubDate><guid>https://grovercoder.github.io/posts/2020-08-08_node-js-and-relational-databases/</guid><description>&lt;p>In this article we do a quick WHY you might need access to relational databases, and then show a brief HOW you can do it.&lt;/p>
+&lt;p>&lt;img src="https://cdn-images-1.medium.com/max/800/0*af_kLxa3TrrdhiFS" alt="Unsplash Image - Markus Spiske">&lt;/p>
+&lt;p>Data storage is an important part of any computer application. Collected data needs to be stored for later analysis, or data needs to be retrieved to generate desired outputs. There are many ways of storing memory — file storage (including text and/or binary options), relational databases, &lt;a href="https://en.wikipedia.org/wiki/NoSQL" class="external-link" target="_blank" rel="noopener">NoSQL&lt;/a> systems, and I’m sure I’ve missed a few.&lt;/p></description></item></channel></rss>
